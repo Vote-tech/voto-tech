@@ -22,11 +22,10 @@ Ensure you have the following tools installed before you proceed:
 
 Jumpstart your development with these simple steps:
 
-1. **Clone and Set Up the Project**
+1. **Clone this repo and Set Up the Project**
 
 ```bash
-git clone https://github.com/scaffold-eth/scaffold-eth-2.git
-cd scaffold-eth-2
+git clone https://github.com/Vote-tech/voto-tech.git
 yarn install
 ```
 
@@ -38,7 +37,7 @@ In your first terminal window, run:
 yarn download-zkeys
 ```
 
-3. **Update the environment variables**
+3. (Optional step) **Update the environment variables (if the .env files are present) **
 
 Copy the env example files to env files
 
@@ -79,12 +78,45 @@ yarn start
 
 7. **Compute Results**
 
-- In a fourth terminal, clone the maci repo - `git clone git@github.com:privacy-scaling-explorations/maci.git` and then reset to `ee3e2a6` commit using `git reset --hard ee3e2a6` 
-- Copy the zkeys generated from the maci wrapper repo to the cli directory of the maci repo using `cp -r maci-wrapper/packages/hardhat/zkeys maci/cli`. 
-- Install the dependencies using `pnpm i` and build the maci project using `pnpm run build`
-- Copy the new contract addresses from the maci wrapper repo to the maci repo using `cp -r maci-wrapper/packages/contractAddresses.json maci/cli/build/contractAddresses.json`. 
+- In a fourth terminal, clone the maci repo - `git clone git@github.com:privacy-scaling-explorations/maci.git` and then reset to `ee3e2a6` commit using `git reset --hard ee3e2a6`
+- Copy the zkeys generated from the maci wrapper repo to the cli directory of the maci repo using `cp -r maci-wrapper/packages/hardhat/zkeys maci/cli`.
+- Inside maci/cli install the dependencies using `pnpm i` and build the maci project using `pnpm run build`
+- Copy the new contract addresses from the maci wrapper repo to the maci repo using `cp -r maci-wrapper/packages/hardhat/contractAddresses.json maci/cli/build/contractAddresses.json`.
 - After this you should be able to run the commands written in the [maci documentation](https://maci.pse.dev/docs/v1.2/cli).
-- First merge signups, then merge messages, and then generate proof, and upload the tally.json file which is generated in the process to the admin panel after the poll is over.
+
+In MACI cli (maci/cli folder):
+
+- First merge signups using (replace --poll-id 0 with the poll you are merging)
+
+```bash
+node build/ts/index.js mergeSignups --poll-id 0
+```
+
+- Second merge signups using (replace --poll-id 0 with the poll you are merging)
+
+```bash
+node build/ts/index.js mergeMessages --poll-id 0
+```
+
+- Third tally votes
+  Replace:
+  "--poll-id 0" with the poll you are merging
+  "--privkey coordinator-private-key" with the private key of the vote coordinator located in voto-tech/packages/hardhat/coordinatorKeyPair.json
+
+```bash
+node build/ts/index.js genProofs \
+--privkey coordinator-private-key \
+--poll-id 0 \
+--process-zkey ./zkeys/ProcessMessages_10-2-1-2_test/ProcessMessages_10-2-1-2_test.0.zkey \
+--tally-zkey ./zkeys/TallyVotes_10-1-2_test/TallyVotes_10-1-2_test.0.zkey \
+--tally-file tally.json \
+--output proofs/ \
+--tally-wasm ./zkeys/TallyVotes_10-1-2_test/TallyVotes_10-1-2_test_js/TallyVotes_10-1-2_test.wasm \
+--process-wasm ./zkeys/ProcessMessages_10-2-1-2_test/ProcessMessages_10-2-1-2_test_js/ProcessMessages_10-2-1-2_test.wasm \
+--wasm \
+```
+
+- G and then generate proof, and upload the tally.json file which is generated in the process to the admin panel after the poll is over.
 
 Navigate to `http://localhost:3000` to interact with your dApp. Modify your app configuration in `packages/nextjs/scaffold.config.ts` and `packages/hardhat/constants.ts` as necessary.
 
