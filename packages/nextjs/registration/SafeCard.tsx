@@ -12,12 +12,14 @@ import {
 } from "abstractionkit";
 import { JsonRpcProvider } from "ethers";
 
-const jsonRPCProvider = process.env.VITE_JSON_RPC_PROVIDER;
-const bundlerUrl = process.env.VITE_BUNDLER_URL as string;
-const paymasterUrl = process.env.VITE_PAYMASTER_URL as string;
-const entrypoint = process.env.VITE_ENTRYPOINT_ADDRESS;
-const chainId = process.env.VITE_CHAIN_ID;
-const chainName = process.env.VITE_CHAIN_NAME as string;
+const jsonRPCProvider = process.env.NEXT_PUBLIC_JSON_RPC_PROVIDER;
+const bundlerUrl = process.env.NEXT_PUBLIC_BUNDLER_URL as string;
+const paymasterUrl = process.env.NEXT_PUBLIC_PAYMASTER_URL as string;
+const entrypoint = process.env.NEXT_PUBLIC_ENTRYPOINT_ADDRESS;
+const chainId = process.env.NEXT_PUBLIC_CHAIN_ID;
+const chainName = process.env.NEXT_PUBLIC_CHAIN_NAME as string;
+
+console.log(chainName, "chainName");
 
 function SafeCard({ passkey }: { passkey: PasskeyLocalStorageFormat }) {
   const [userOpHash, setUserOpHash] = useState<string>();
@@ -26,8 +28,12 @@ function SafeCard({ passkey }: { passkey: PasskeyLocalStorageFormat }) {
   const [error, setError] = useState<string>();
   const [txHash, setTxHash] = useState<string>();
 
+
   const accountAddress = getItem("accountAddress") as string;
   const provider = new JsonRpcProvider(process.env.VITE_JSON_RPC_PROVIDER);
+
+  console.log("rpc", jsonRPCProvider);
+  console.log("provder", provider);
 
   const isDeployed = async () => {
     const safeCode = await provider.getCode(accountAddress);

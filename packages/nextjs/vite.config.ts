@@ -3,10 +3,10 @@ import { defineConfig, loadEnv } from "vite";
 import mkcert from "vite-plugin-mkcert";
 
 const REQUIRED_ENV_VARS = [
-  "VITE_CHAIN_ID",
-  "VITE_BUNDLER_URL",
-  "VITE_JSON_RPC_PROVIDER",
-  "VITE_PAYMASTER_URL",
+  "NEXT_PUBLIC_CHAIN_NAME",
+  "NEXT_PUBLIC_BUNDLER_URL",
+  "NEXT_PUBLIC__JSON_RPC_PROVIDER",
+  "NEXT_PUBLIC__PAYMASTER_URL",
   "GITHUB_TOKEN",
 ];
 
