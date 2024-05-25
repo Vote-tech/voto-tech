@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { SafePasskeysDemo } from "./registration/SafePasskeysDemo";
+// import { SafePasskeysDemo } from "./registration/SafePasskeysDemo";
 import type { NextPage } from "next";
 import HeroImage from "~~/assets/private_voting.png";
 import { useAuthUserOnly } from "~~/hooks/useAuthUserOnly";
+import RegisterButton from "./_components/RegisterButton";
 
 const Home: NextPage = () => {
   useAuthUserOnly({ inverted: true });
@@ -21,10 +22,10 @@ const Home: NextPage = () => {
                 This starter kit is designed to help you get started with private voting using the Minimal
                 Anti-Collusion Infrastructure (MACI).
               </p>
-              {/* <div className="text-center">
+              <div className="text-center">
                 <RegisterButton />
-              </div> */}
-              <SafePasskeysDemo />
+              </div>
+              {/* <SafePasskeysDemo /> */}
             </div>
             <div className="flex-1">
               <Image src={HeroImage} alt="MACI" className="w-full" />

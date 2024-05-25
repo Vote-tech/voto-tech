@@ -3909,12 +3909,12 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "address",
+              internalType: "uint256",
               name: "",
-              type: "address",
+              type: "uint256",
             },
           ],
-          name: "registeredUsers",
+          name: "registeredTickets",
           outputs: [
             {
               internalType: "bool",
@@ -3961,7 +3961,8 @@ const deployedContracts = {
       ],
       inheritedFunctions: {
         register: "maci-contracts/contracts/gatekeepers/SignUpGatekeeper.sol",
-        setMaciInstance: "maci-contracts/contracts/gatekeepers/SignUpGatekeeper.sol",
+        setMaciInstance:
+          "maci-contracts/contracts/gatekeepers/SignUpGatekeeper.sol",
       },
       deploymentBlockNumber: 5,
     },
