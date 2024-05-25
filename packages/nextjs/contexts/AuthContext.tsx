@@ -90,9 +90,14 @@ export default function AuthContextProvider({
       setStateIndex(null);
       return;
     }
-
-    const lastSignUpEvent = SignUpEvents[SignUpEvents.length - 1];
-    setStateIndex(lastSignUpEvent.args._stateIndex || null);
+    const event = SignUpEvents.filter(
+      log =>
+        log.args._userPubKeyX?.toString() ===
+          keypair.pubKey.asContractParam().x &&
+        log.args._userPubKeyY?.toString() ===
+          keypair.pubKey.asContractParam().y,
+    )[0];
+    setStateIndex(event?.args?._stateIndex || null);
   }, [keypair, SignUpEvents]);
 
   useScaffoldEventSubscriber({
