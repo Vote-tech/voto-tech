@@ -12,13 +12,16 @@ export const getParsedError = (e: any): string => {
       message = e.details;
     } else if (e.shortMessage) {
       message = e.shortMessage;
-      const cause = e.cause as { data?: DecodeErrorResultReturnType } | undefined;
+      const cause = e.cause as
+        | { data?: DecodeErrorResultReturnType }
+        | undefined;
       // if its not generic error, append custom error name and its args to message
       if (cause?.data && cause.data?.abiItem?.name !== "Error") {
         const customErrorArgs = cause.data.args?.toString() ?? "";
-        message = `${message.replace(/reverted\.$/, "reverted with following reason:")}\n${
-          cause.data.errorName
-        }(${customErrorArgs})`;
+        message = `${message.replace(
+          /reverted\.$/,
+          "reverted with following reason:",
+        )}\n${cause.data.errorName}(${customErrorArgs})`;
       }
     } else if (e.message) {
       message = e.message;

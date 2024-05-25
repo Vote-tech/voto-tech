@@ -10,10 +10,13 @@ type TransactionType = TransactionWithFunction | null;
 const deployedContracts = contractData as GenericContractsDeclaration | null;
 const chainMetaData = deployedContracts?.[hardhat.id];
 const interfaces = chainMetaData
-  ? Object.entries(chainMetaData).reduce((finalInterfacesObj, [contractName, contract]) => {
-      finalInterfacesObj[contractName] = contract.abi;
-      return finalInterfacesObj;
-    }, {} as ContractsInterfaces)
+  ? Object.entries(chainMetaData).reduce(
+      (finalInterfacesObj, [contractName, contract]) => {
+        finalInterfacesObj[contractName] = contract.abi;
+        return finalInterfacesObj;
+      },
+      {} as ContractsInterfaces,
+    )
   : {};
 
 export const decodeTransactionData = (tx: TransactionWithFunction) => {
@@ -26,12 +29,14 @@ export const decodeTransactionData = (tx: TransactionWithFunction) => {
         });
         tx.functionName = functionName;
         tx.functionArgs = args as any[];
-        tx.functionArgNames = getAbiItem({ abi: contractAbi, name: functionName }).inputs.map(
-          (input: any) => input.name,
-        );
-        tx.functionArgTypes = getAbiItem({ abi: contractAbi, name: functionName }).inputs.map(
-          (input: any) => input.type,
-        );
+        tx.functionArgNames = getAbiItem({
+          abi: contractAbi,
+          name: functionName,
+        }).inputs.map((input: any) => input.name);
+        tx.functionArgTypes = getAbiItem({
+          abi: contractAbi,
+          name: functionName,
+        }).inputs.map((input: any) => input.type);
 
         break;
       } catch (e) {
@@ -51,7 +56,10 @@ export const getFunctionDetails = (transaction: TransactionType) => {
     transaction.functionArgs
   ) {
     const details = transaction.functionArgNames.map(
-      (name, i) => `${transaction.functionArgTypes?.[i] || ""} ${name} = ${transaction.functionArgs?.[i] ?? ""}`,
+      (name, i) =>
+        `${transaction.functionArgTypes?.[i] || ""} ${name} = ${
+          transaction.functionArgs?.[i] ?? ""
+        }`,
     );
     return `${transaction.functionName}(${details.join(", ")})`;
   }

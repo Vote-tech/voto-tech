@@ -28,7 +28,9 @@ export const ReadOnlyFunctionForm = ({
   inheritedFrom,
   abi,
 }: ReadOnlyFunctionFormProps) => {
-  const [form, setForm] = useState<Record<string, any>>(() => getInitialFormState(abiFunction));
+  const [form, setForm] = useState<Record<string, any>>(() =>
+    getInitialFormState(abiFunction),
+  );
   const [result, setResult] = useState<unknown>();
 
   const { isFetching, refetch } = useContractRead({
@@ -72,7 +74,9 @@ export const ReadOnlyFunctionForm = ({
           {result !== null && result !== undefined && (
             <div className="bg-secondary rounded-3xl text-sm px-4 py-1.5 break-words">
               <p className="font-bold m-0 mb-1">Result:</p>
-              <pre className="whitespace-pre-wrap break-words">{displayTxResult(result)}</pre>
+              <pre className="whitespace-pre-wrap break-words">
+                {displayTxResult(result)}
+              </pre>
             </div>
           )}
         </div>
@@ -84,7 +88,9 @@ export const ReadOnlyFunctionForm = ({
           }}
           disabled={isFetching}
         >
-          {isFetching && <span className="loading loading-spinner loading-xs"></span>}
+          {isFetching && (
+            <span className="loading loading-spinner loading-xs"></span>
+          )}
           Read 📡
         </button>
       </div>

@@ -61,7 +61,10 @@ export default function PollStatusModal({
   return (
     <Modal show={show} setOpen={setOpen}>
       <div className="mt-3 text-center sm:mt-5 mb-6">
-        <Dialog.Title as="h3" className="font-bold leading-6 text-2xl text-neutral-content">
+        <Dialog.Title
+          as="h3"
+          className="font-bold leading-6 text-2xl text-neutral-content"
+        >
           Required Actions
         </Dialog.Title>
       </div>
