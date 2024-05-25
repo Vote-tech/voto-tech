@@ -2907,6 +2907,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react-refresh: ^0.4.7
     ethers: ^5.0.24
+    maci-contracts: ^1.2.2
     maci-crypto: 0.0.0-ci.f6073a6
     maci-domainobjs: 0.0.0-ci.f6073a6
     next: ^14.0.4
@@ -9815,7 +9816,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.1.9, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.11, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6, graceful-fs@npm:^4.2.9":
+"graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.1.3, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.1.9, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.11, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6, graceful-fs@npm:^4.2.9":
   version: 4.2.11
   resolution: "graceful-fs@npm:4.2.11"
   checksum: ac85f94da92d8eb6b7f5a8b20ce65e43d66761c55ce85ac96df6865308390da45a8d3f0296dd3a663de65d30ba497bd46c696cc1e248c72b13d6d567138a4fc7
@@ -10726,6 +10727,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-promise@npm:^2.1.0":
+  version: 2.2.2
+  resolution: "is-promise@npm:2.2.2"
+  checksum: 18bf7d1c59953e0ad82a1ed963fb3dc0d135c8f299a14f89a17af312fc918373136e56028e8831700e1933519630cc2fd4179a777030330fde20d34e96f40c78
+  languageName: node
+  linkType: hard
+
 "is-regex@npm:^1.1.4":
   version: 1.1.4
   resolution: "is-regex@npm:1.1.4"
@@ -11555,7 +11563,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.21, lodash@npm:^4.17.4":
+"lodash@npm:4, lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.21, lodash@npm:^4.17.4":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -11631,6 +11639,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lowdb@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "lowdb@npm:1.0.0"
+  dependencies:
+    graceful-fs: ^4.1.3
+    is-promise: ^2.1.0
+    lodash: 4
+    pify: ^3.0.0
+    steno: ^0.4.1
+  checksum: 7ae89e3d6e00963129f72c4d4e1fe8e4cda5c08a46b4f4e525109483147e799df90c07d95aeced1c270cc10f4a24c6660fe1601cc4b3a6e2c3f922ad64517eab
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0":
   version: 10.2.2
   resolution: "lru-cache@npm:10.2.2"
@@ -11678,6 +11699,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"maci-circuits@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "maci-circuits@npm:1.2.2"
+  dependencies:
+    "@zk-kit/circuits": ^0.4.0
+    circomkit: ^0.1.0
+    circomlib: ^2.0.5
+    maci-core: ^1.2.2
+    maci-crypto: ^1.2.2
+    maci-domainobjs: ^1.2.2
+    snarkjs: ^0.7.4
+  checksum: bff4135e6938ab37f169d7ae9136154282720f593192e734d5070ceed06ec44163022764a98d17f2ca8f1701137c1452724ec28cd535d244b4e64e4b86a12434
+  languageName: node
+  linkType: hard
+
 "maci-cli@npm:0.0.0-ci.f6073a6":
   version: 0.0.0-ci.f6073a6
   resolution: "maci-cli@npm:0.0.0-ci.f6073a6"
@@ -11722,6 +11758,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"maci-contracts@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "maci-contracts@npm:1.2.2"
+  dependencies:
+    "@nomicfoundation/hardhat-ethers": ^3.0.5
+    "@nomicfoundation/hardhat-toolbox": ^5.0.0
+    "@openzeppelin/contracts": ^5.0.2
+    circomlibjs: ^0.1.7
+    ethers: ^6.12.0
+    hardhat: ^2.22.3
+    lowdb: ^1.0.0
+    maci-circuits: ^1.2.2
+    maci-core: ^1.2.2
+    maci-crypto: ^1.2.2
+    maci-domainobjs: ^1.2.2
+    solidity-docgen: ^0.6.0-beta.36
+  bin:
+    maci-contracts: build/ts/index.js
+  checksum: f98fa6a9457c25a6b22957f085f12181f642592865f44c5e4d1368b9e79fa2710ea713778faf056614bb9398d1da0f8b0122d0e6a1f50c497caed74fa58ec955
+  languageName: node
+  linkType: hard
+
 "maci-core@npm:0.0.0-ci.f6073a6":
   version: 0.0.0-ci.f6073a6
   resolution: "maci-core@npm:0.0.0-ci.f6073a6"
@@ -11729,6 +11787,16 @@ __metadata:
     maci-crypto: 0.0.0-ci.f6073a6
     maci-domainobjs: 0.0.0-ci.f6073a6
   checksum: 5f902acdd11a5f99e49bbe4ea1cbdf9818eb54496d56769bdf10b60e2fe5ddc3b99d992794511e656729d7bdeab95a873a513f719c3fd028faf0270dbabfbaea
+  languageName: node
+  linkType: hard
+
+"maci-core@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "maci-core@npm:1.2.2"
+  dependencies:
+    maci-crypto: ^1.2.2
+    maci-domainobjs: ^1.2.2
+  checksum: 79c6853517590fda53682fa50d85bf1a7ddb08b228187104c3534bcc3a296b8710320f46e8a70b2b9c808c5e3179f9c125d5ff332f27506146b99a7c0f124501
   languageName: node
   linkType: hard
 
@@ -11744,12 +11812,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"maci-crypto@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "maci-crypto@npm:1.2.2"
+  dependencies:
+    "@zk-kit/baby-jubjub": ^0.3.0
+    "@zk-kit/eddsa-poseidon": ^0.11.0
+    "@zk-kit/poseidon-cipher": ^0.3.0
+    ethers: ^6.12.0
+  checksum: 57759abf6bae27dbfd38d2c3b74e8b14e0aef24e93907ad298cdd686717869e757fb610eee292b64343c527cee6a70a1490cf34f8c3883a9572a8eff627babc7
+  languageName: node
+  linkType: hard
+
 "maci-domainobjs@npm:0.0.0-ci.f6073a6":
   version: 0.0.0-ci.f6073a6
   resolution: "maci-domainobjs@npm:0.0.0-ci.f6073a6"
   dependencies:
     maci-crypto: 0.0.0-ci.f6073a6
   checksum: 11ee8b6636a1e63cc30ca4104d41d0f5446a84d5a4644b8991ff5e4bc2e9e793da5b3415198fb519e5f3bce82bea641bfc6114fe01260367277162260407ec2c
+  languageName: node
+  linkType: hard
+
+"maci-domainobjs@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "maci-domainobjs@npm:1.2.2"
+  dependencies:
+    maci-crypto: ^1.2.2
+  checksum: 28ebf73ae6bf6c0f1e66c7995b30d7215e577911bfc6e5d90a8c2e7b52c2e43a789d6224c7e27184badf593b105ac7732544dab972883fc2917f419d81276968
   languageName: node
   linkType: hard
 
@@ -14824,6 +14913,15 @@ __metadata:
   version: 3.7.0
   resolution: "std-env@npm:3.7.0"
   checksum: 4f489d13ff2ab838c9acd4ed6b786b51aa52ecacdfeaefe9275fcb220ff2ac80c6e95674723508fd29850a694569563a8caaaea738eb82ca16429b3a0b50e510
+  languageName: node
+  linkType: hard
+
+"steno@npm:^0.4.1":
+  version: 0.4.4
+  resolution: "steno@npm:0.4.4"
+  dependencies:
+    graceful-fs: ^4.1.3
+  checksum: 87df4121cf8159fceb3dc925111aff1e237bdea2d37f6684eabbcdea63bfcff79b3234f2a61ffe8de5cf17fcb97e2cf09075a2a98993251f79e2868fe0d5ba1e
   languageName: node
   linkType: hard
 
