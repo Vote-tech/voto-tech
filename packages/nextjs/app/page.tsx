@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { SafePasskeysDemo } from "./registration/SafePasskeysDemo";
+import { SafePasskeysDemo } from "../registration/SafePasskeysDemo";
 import type { NextPage } from "next";
 import HeroImage from "~~/assets/private_voting.png";
 import { useAuthUserOnly } from "~~/hooks/useAuthUserOnly";
