@@ -7,10 +7,6 @@ import { usePathname } from "next/navigation";
 import { useAccount } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import {
-  FaucetButton,
-  RainbowKitCustomConnectButton,
-} from "~~/components/scaffold-eth";
-import {
   useOutsideClick,
   useScaffoldContractRead,
 } from "~~/hooks/scaffold-eth";
