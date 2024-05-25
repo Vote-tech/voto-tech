@@ -3,7 +3,7 @@ import { PasskeyLocalStorageFormat } from "./logic/passkeys";
 import { setItem } from "./logic/storage";
 import { SafeAccountWebAuth as SafeAccount } from "abstractionkit";
 
-const chainName = process.env.VITE_CHAIN_NAME as string;
+const chainName = process.env.NEXT_PUBLIC_CHAIN_NAME as string;
 
 function PasskeyCard({
   passkey,
