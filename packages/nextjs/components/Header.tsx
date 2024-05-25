@@ -4,6 +4,7 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { RainbowKitCustomConnectButton } from "./scaffold-eth";
 import { useAccount } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import {
@@ -131,6 +132,11 @@ export const Header = () => {
       <div className="navbar-center">
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2 justify-items-center">
           <HeaderMenuLinks />
+        </ul>
+      </div>
+      <div className="navbar-end">
+        <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2 justify-items-center">
+          <RainbowKitCustomConnectButton />
         </ul>
       </div>
     </div>
