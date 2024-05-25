@@ -14,12 +14,6 @@ contract ZupassGatekeeper is
 	SignUpGatekeeper,
 	Ownable(msg.sender)
 {
-	struct ProofArgs {
-		uint256[2] _pA;
-		uint256[2][2] _pB;
-		uint256[2] _pC;
-		uint256[38] _pubSignals;
-	}
 
 	// The Zupass event UUID converted to bigint
 	uint256 immutable validEventId;
@@ -33,8 +27,8 @@ contract ZupassGatekeeper is
 	/// @notice the reference to the MACI contract
 	address public maci;
 
-	/// @notice a mapping of user addresses to whether they have been signed up
-	mapping(address => bool) public registeredUsers;
+	/// @notice a mapping of ticket IDs to whether they have been used
+	mapping(uint256 => bool) public registeredTickets;
 
 	/// @notice custom errors
 	error AlreadyRegistered();
@@ -68,30 +62,36 @@ contract ZupassGatekeeper is
 	/// @param _data The ABI-encoded tokenId as a uint256.
 	function register(address _user, bytes memory _data) public override {
 		if (maci != msg.sender) revert OnlyMACI();
-		// Decode the given _data bytes into a uint256 which is the token ID
-		ProofArgs memory proof = abi.decode(_data, (ProofArgs));
 
-		if (!verifier.verifyProof(proof._pA, proof._pB, proof._pC, proof._pubSignals))
+		// Decode the given _data bytes
+		(uint256[2] memory _pA,
+		uint256[2][2] memory _pB,
+		uint256[2] memory _pC,
+		uint256[38] memory _pubSignals) = abi.decode(_data, (uint256[2], uint256[2][2], uint256[2], uint256[38]));
+		if (!verifier.verifyProof(_pA, _pB, _pC, _pubSignals))
 			revert InvalidProof();
 
 		// Events are stored from starting index 15 to till valid event ids length
-		if (proof._pubSignals[16] != validEventId)
+
+		if (_pubSignals[15] != validEventId)
 			revert InvalidEventId();
 
 		// signers are stored from starting index 13 to 14
 		if (
-			proof._pubSignals[13] == validSigner1 &&
-			proof._pubSignals[14] == validSigner2
+			_pubSignals[13] != validSigner1 ||
+			_pubSignals[14] != validSigner2
 		)
 			revert InvalidSigners();
 
 		// watermark is stored at index 37
-		if (proof._pubSignals[37] != uint256(uint160(_user)))
+		if (_pubSignals[37] != uint256(uint160(_user)))
 			revert InvalidWatermark();
 
-		if (registeredUsers[_user])
+		// ticket ID is stored at index 0
+		uint256 ticketId = _pubSignals[0];
+		if (registeredTickets[ticketId])
 			revert AlreadyRegistered();
 
-		registeredUsers[_user] = true;
+		registeredTickets[ticketId] = true;
 	}
 }
