@@ -6,6 +6,9 @@
  */
 function setItem<T>(key: string, value: T) {
   // to prevent silly mistakes with double stringifying
+  if (typeof window === "undefined") {
+    return null;
+  }
   if (typeof value === "string") {
     localStorage.setItem(key, value);
   } else {
@@ -23,6 +26,9 @@ function setItem<T>(key: string, value: T) {
  * @returns The value associated with the key, or null if the key does not exist.
  */
 function getItem(key: string): string | null {
+  if (typeof window === "undefined") {
+    return null;
+  }
   return localStorage.getItem(key);
 }
 
