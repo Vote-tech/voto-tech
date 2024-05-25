@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { PasskeyLocalStorageFormat } from "./logic/passkeys";
 import { getItem } from "./logic/storage";
 import { signAndSendUserOp } from "./logic/userOp";
+import { JsonRpcProvider } from "@ethersproject/providers";
 import {
   CandidePaymaster,
   DummySignature,
@@ -10,13 +11,14 @@ import {
   createCallData,
   getFunctionSelector,
 } from "abstractionkit";
-import { JsonRpcProvider } from "ethers";
 
 const jsonRPCProvider = process.env.NEXT_PUBLIC_JSON_RPC_PROVIDER;
 const bundlerUrl = process.env.NEXT_PUBLIC_BUNDLER_URL as string;
 const paymasterUrl = process.env.NEXT_PUBLIC_PAYMASTER_URL as string;
 const entrypoint = process.env.NEXT_PUBLIC_ENTRYPOINT_ADDRESS;
-const chainId = process.env.NEXT_PUBLIC_CHAIN_ID;
+const chainId = process.env.NEXT_PUBLIC_CHAIN_ID
+  ? BigInt(process.env.NEXT_PUBLIC_CHAIN_ID)
+  : 0n;
 const chainName = process.env.NEXT_PUBLIC_CHAIN_NAME as string;
 
 console.log(chainName, "chainName");
