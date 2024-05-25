@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import RegisterButton from "./_components/RegisterButton";
+import { SafePasskeysDemo } from "./registration/SafePasskeysDemo";
 import type { NextPage } from "next";
 import HeroImage from "~~/assets/private_voting.png";
 import { useAuthUserOnly } from "~~/hooks/useAuthUserOnly";
@@ -24,9 +24,10 @@ const Home: NextPage = () => {
                 private voting using the Minimal Anti-Collusion Infrastructure
                 (MACI).
               </p>
-              <div className="text-center">
+              {/* <div className="text-center">
                 <RegisterButton />
-              </div>
+              </div> */}
+              <SafePasskeysDemo />
             </div>
             <div className="flex-1">
               <Image src={HeroImage} alt="MACI" className="w-full" />
