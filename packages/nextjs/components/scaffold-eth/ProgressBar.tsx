@@ -3,7 +3,11 @@
 import { useEffect } from "react";
 import NProgress from "nprogress";
 
-type PushStateInput = [data: any, unused: string, url?: string | URL | null | undefined];
+type PushStateInput = [
+  data: any,
+  unused: string,
+  url?: string | URL | null | undefined,
+];
 
 export function ProgressBar() {
   const height = "3px";
@@ -54,7 +58,9 @@ export function ProgressBar() {
 
     const handleMutation: MutationCallback = () => {
       const anchorElements = document.querySelectorAll("a");
-      anchorElements.forEach(anchor => anchor.addEventListener("click", handleAnchorClick));
+      anchorElements.forEach(anchor =>
+        anchor.addEventListener("click", handleAnchorClick),
+      );
     };
 
     const mutationObserver = new MutationObserver(handleMutation);

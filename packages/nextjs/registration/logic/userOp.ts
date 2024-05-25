@@ -1,5 +1,9 @@
 import { hexStringToUint8Array } from "../utils/stringConversion";
-import { PasskeyLocalStorageFormat, extractClientDataFields, extractSignature } from "./passkeys";
+import {
+  PasskeyLocalStorageFormat,
+  extractClientDataFields,
+  extractSignature,
+} from "./passkeys";
 import {
   SafeAccountWebAuth as SafeAccount,
   SendUseroperationResponse,
@@ -27,16 +31,26 @@ async function signAndSendUserOp(
   smartAccount: SafeAccount,
   userOp: UserOperation,
   passkey: PasskeyLocalStorageFormat,
-  entryPoint: string = process.env.NEXT_PUBLIC_ENTRYPOINT_ADDRESS!,
-  chainId: ethers.BigNumberish = process.env.NEXT_PUBLIC_CHAIN_ID!,
-  bundlerUrl: string = process.env.NEXT_PUBLIC_BUNDLER_URL!,
+  entryPoint: string = process.env.NEXT_PUBLIC_ENTRYPOINT_ADDRESS as string,
+  chainId: bigint = process.env.NEXT_PUBLIC_CHAIN_ID
+    ? BigInt(process.env.NEXT_PUBLIC_CHAIN_ID)
+    : 0n,
+  bundlerUrl: string = process.env.NEXT_PUBLIC_BUNDLER_URL as string,
 ): Promise<SendUseroperationResponse> {
-  const safeInitOpHash = SafeAccount.getUserOperationEip712Hash(userOp, BigInt(chainId), 0n, 0n, entryPoint);
+  const safeInitOpHash = SafeAccount.getUserOperationEip712Hash(
+    userOp,
+    BigInt(chainId),
+    0n,
+    0n,
+    entryPoint,
+  );
 
   const assertion = (await navigator.credentials.get({
     publicKey: {
-      challenge: ethers.getBytes(safeInitOpHash),
-      allowCredentials: [{ type: "public-key", id: hexStringToUint8Array(passkey.rawId) }],
+      challenge: ethers.utils.arrayify(safeInitOpHash),
+      allowCredentials: [
+        { type: "public-key", id: hexStringToUint8Array(passkey.rawId) },
+      ],
     },
   })) as Assertion | null;
 
@@ -50,14 +64,18 @@ async function signAndSendUserOp(
     rs: extractSignature(assertion.response.signature),
   };
 
-  const webauthSignature: string = SafeAccount.createWebAuthnSignature(webauthSignatureData);
+  const webauthSignature: string =
+    SafeAccount.createWebAuthnSignature(webauthSignatureData);
 
   const SignerSignaturePair: SignerSignaturePair = {
     signer: passkey.pubkeyCoordinates,
     signature: webauthSignature,
   };
 
-  userOp.signature = SafeAccount.formatSignaturesToUseroperationSignature([SignerSignaturePair], userOp.nonce == 0n);
+  userOp.signature = SafeAccount.formatSignaturesToUseroperationSignature(
+    [SignerSignaturePair],
+    userOp.nonce == 0n,
+  );
 
   console.log(userOp, "userOp");
   return await smartAccount.sendUserOperation(userOp, bundlerUrl);

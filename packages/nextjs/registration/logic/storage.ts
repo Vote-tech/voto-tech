@@ -14,7 +14,9 @@ function setItem<T>(key: string, value: T) {
   } else {
     localStorage.setItem(
       key,
-      JSON.stringify(value, (_key, value) => (typeof value === "bigint" ? "0x" + value.toString(16) : value)),
+      JSON.stringify(value, (_key, value) =>
+        typeof value === "bigint" ? "0x" + value.toString(16) : value,
+      ),
     );
   }
 }

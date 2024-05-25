@@ -19,7 +19,10 @@ import {
  */
 export const useScaffoldContractRead = <
   TContractName extends ContractName,
-  TFunctionName extends ExtractAbiFunctionNames<ContractAbi<TContractName>, "pure" | "view">,
+  TFunctionName extends ExtractAbiFunctionNames<
+    ContractAbi<TContractName>,
+    "pure" | "view"
+  >,
 >({
   contractName,
   functionName,

@@ -4,7 +4,7 @@
 
 :root,
 [data-theme] {
-  background: oklch(var(--b2));
+  background: oklch(var(--b9));
 }
 
 body {

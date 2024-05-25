@@ -9,7 +9,10 @@ import { getItem, setItem } from "../logic/storage";
  * @param {T} initialValue - The initial value of the state.
  * @returns {[T, React.Dispatch<React.SetStateAction<T>>]} - An array containing the current state value and a function to update the state.
  */
-function useLocalStorageState<T>(key: string, initialValue: T): [T, React.Dispatch<React.SetStateAction<T>>] {
+function useLocalStorageState<T>(
+  key: string,
+  initialValue: T,
+): [T, React.Dispatch<React.SetStateAction<T>>] {
   const [state, setState] = useState<T>(() => {
     const storedValue = getItem(key);
 

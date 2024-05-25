@@ -22,10 +22,11 @@ export function getPollStatus(poll: RawPoll) {
 
 export const useFetchPolls = (currentPage = 1, limit = 10, reversed = true) => {
   const [polls, setPolls] = useState<Poll[]>();
-  const { data: totalPolls, refetch: refetchTotalPolls } = useScaffoldContractRead({
-    contractName: "MACIWrapper",
-    functionName: "nextPollId",
-  });
+  const { data: totalPolls, refetch: refetchTotalPolls } =
+    useScaffoldContractRead({
+      contractName: "MACIWrapper",
+      functionName: "nextPollId",
+    });
 
   const { data: rawPolls, refetch: refetchPolls } = useScaffoldContractRead({
     contractName: "MACIWrapper",
@@ -63,6 +64,7 @@ export const useFetchPolls = (currentPage = 1, limit = 10, reversed = true) => {
     () => {
       clearInterval(interval);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rawPolls]);
 
   function refetch() {

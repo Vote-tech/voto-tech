@@ -24,10 +24,14 @@ export default function PollDetail({ id }: { id: bigint }) {
 
   const [votes, setVotes] = useState<{ index: number; votes: number }[]>([]);
 
-  const [isVotesInvalid, setIsVotesInvalid] = useState<Record<number, boolean>>({});
+  const [isVotesInvalid, setIsVotesInvalid] = useState<Record<number, boolean>>(
+    {},
+  );
 
   const isAnyInvalid = Object.values(isVotesInvalid).some(v => v);
-  const [result, setResult] = useState<{ candidate: string; votes: number }[] | null>(null);
+  const [result, setResult] = useState<
+    { candidate: string; votes: number }[] | null
+  >(null);
   const [status, setStatus] = useState<PollStatus>();
 
   useEffect(() => {
@@ -51,7 +55,9 @@ export default function PollDetail({ id }: { id: bigint }) {
           if (poll.options.length > tally.length) {
             throw new Error("Invalid tally data");
           }
-          const tallyCounts: number[] = tally.map((v: string) => Number(v)).slice(0, poll.options.length);
+          const tallyCounts: number[] = tally
+            .map((v: string) => Number(v))
+            .slice(0, poll.options.length);
           const result = [];
           for (let i = 0; i < poll.options.length; i++) {
             const candidate = poll.options[i];
@@ -148,9 +154,23 @@ export default function PollDetail({ id }: { id: bigint }) {
           args: [
             votesToMessage[0].message.asContractParam() as unknown as {
               msgType: bigint;
-              data: readonly [bigint, bigint, bigint, bigint, bigint, bigint, bigint, bigint, bigint, bigint];
+              data: readonly [
+                bigint,
+                bigint,
+                bigint,
+                bigint,
+                bigint,
+                bigint,
+                bigint,
+                bigint,
+                bigint,
+                bigint,
+              ];
             },
-            votesToMessage[0].encKeyPair.pubKey.asContractParam() as unknown as { x: bigint; y: bigint },
+            votesToMessage[0].encKeyPair.pubKey.asContractParam() as unknown as {
+              x: bigint;
+              y: bigint;
+            },
           ],
         });
       } else {
@@ -160,10 +180,27 @@ export default function PollDetail({ id }: { id: bigint }) {
               v =>
                 v.message.asContractParam() as unknown as {
                   msgType: bigint;
-                  data: readonly [bigint, bigint, bigint, bigint, bigint, bigint, bigint, bigint, bigint, bigint];
+                  data: readonly [
+                    bigint,
+                    bigint,
+                    bigint,
+                    bigint,
+                    bigint,
+                    bigint,
+                    bigint,
+                    bigint,
+                    bigint,
+                    bigint,
+                  ];
                 },
             ),
-            votesToMessage.map(v => v.encKeyPair.pubKey.asContractParam() as { x: bigint; y: bigint }),
+            votesToMessage.map(
+              v =>
+                v.encKeyPair.pubKey.asContractParam() as {
+                  x: bigint;
+                  y: bigint;
+                },
+            ),
           ],
         });
       }
@@ -198,7 +235,10 @@ export default function PollDetail({ id }: { id: bigint }) {
 
     const encKeyPair = new Keypair();
 
-    const message = command.encrypt(signature, Keypair.genEcdhSharedKey(encKeyPair.privKey, coordinatorPubKey));
+    const message = command.encrypt(
+      signature,
+      Keypair.genEcdhSharedKey(encKeyPair.privKey, coordinatorPubKey),
+    );
 
     return { message, encKeyPair };
   }
@@ -212,7 +252,10 @@ export default function PollDetail({ id }: { id: bigint }) {
     }
 
     if (checked) {
-      setVotes([...votes.filter(v => v.index !== index), { index, votes: voteCounts }]);
+      setVotes([
+        ...votes.filter(v => v.index !== index),
+        { index, votes: voteCounts },
+      ]);
     } else {
       setVotes(votes.filter(v => v.index !== index));
     }
@@ -238,7 +281,9 @@ export default function PollDetail({ id }: { id: bigint }) {
               pollType={pollType}
               onChange={(checked, votes) => voteUpdated(index, checked, votes)}
               isInvalid={Boolean(isVotesInvalid[index])}
-              setIsInvalid={status => setIsVotesInvalid({ ...isVotesInvalid, [index]: status })}
+              setIsInvalid={status =>
+                setIsVotesInvalid({ ...isVotesInvalid, [index]: status })
+              }
             />
           </div>
         ))}
@@ -262,8 +307,12 @@ export default function PollDetail({ id }: { id: bigint }) {
                 <thead>
                   <tr className="text-lg font-extralight">
                     <th className="border border-slate-600 bg-primary">Rank</th>
-                    <th className="border border-slate-600 bg-primary">Candidate</th>
-                    <th className="border border-slate-600 bg-primary">Votes</th>
+                    <th className="border border-slate-600 bg-primary">
+                      Candidate
+                    </th>
+                    <th className="border border-slate-600 bg-primary">
+                      Votes
+                    </th>
                   </tr>
                 </thead>
                 <tbody>

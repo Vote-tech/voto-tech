@@ -1,5 +1,10 @@
 import { ReactElement } from "react";
-import { TransactionBase, TransactionReceipt, formatEther, isAddress } from "viem";
+import {
+  TransactionBase,
+  TransactionReceipt,
+  formatEther,
+  isAddress,
+} from "viem";
 import { Address } from "~~/components/scaffold-eth";
 import { replacer } from "~~/utils/scaffold-eth/common";
 
@@ -24,7 +29,10 @@ export const displayTxResult = (
   if (typeof displayContent === "bigint") {
     try {
       const asNumber = Number(displayContent);
-      if (asNumber <= Number.MAX_SAFE_INTEGER && asNumber >= Number.MIN_SAFE_INTEGER) {
+      if (
+        asNumber <= Number.MAX_SAFE_INTEGER &&
+        asNumber >= Number.MIN_SAFE_INTEGER
+      ) {
         return asNumber;
       } else {
         return "Ξ" + formatEther(displayContent);
@@ -41,16 +49,22 @@ export const displayTxResult = (
   if (Array.isArray(displayContent)) {
     const mostReadable = (v: DisplayContent) =>
       ["number", "boolean"].includes(typeof v) ? v : displayTxResultAsText(v);
-    const displayable = JSON.stringify(displayContent.map(mostReadable), replacer);
+    const displayable = JSON.stringify(
+      displayContent.map(mostReadable),
+      replacer,
+    );
 
     return asText ? (
       displayable
     ) : (
-      <span style={{ overflowWrap: "break-word", width: "100%" }}>{displayable.replaceAll(",", ",\n")}</span>
+      <span style={{ overflowWrap: "break-word", width: "100%" }}>
+        {displayable.replaceAll(",", ",\n")}
+      </span>
     );
   }
 
   return JSON.stringify(displayContent, replacer, 2);
 };
 
-const displayTxResultAsText = (displayContent: DisplayContent) => displayTxResult(displayContent, true);
+const displayTxResultAsText = (displayContent: DisplayContent) =>
+  displayTxResult(displayContent, true);

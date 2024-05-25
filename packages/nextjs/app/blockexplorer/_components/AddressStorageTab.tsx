@@ -54,7 +54,9 @@ export const AddressStorageTab = ({ address }: { address: Address }) => {
           </pre>
         </div>
       ) : (
-        <div className="text-lg">This contract does not have any variables.</div>
+        <div className="text-lg">
+          This contract does not have any variables.
+        </div>
       )}
     </div>
   );

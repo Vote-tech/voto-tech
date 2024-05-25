@@ -17,7 +17,6 @@ module.exports = {
         endOfLine: "auto",
       },
     ],
-    "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
   },
   ignorePatterns: ["dist", ".eslintrc.cjs"],
 };

@@ -1,8 +1,14 @@
 {
   "arrowParens": "avoid",
-  "printWidth": 120,
   "tabWidth": 2,
   "trailingComma": "all",
-  "importOrder": ["^react$", "^next/(.*)$", "<THIRD_PARTY_MODULES>", "^@heroicons/(.*)$", "^~~/(.*)$"],
-  "importOrderSortSpecifiers": true
+  "importOrder": [
+    "^react$",
+    "^next/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@heroicons/(.*)$",
+    "^~~/(.*)$"
+  ],
+  "printWidth": 80,
+  "proseWrap": "always"
 }

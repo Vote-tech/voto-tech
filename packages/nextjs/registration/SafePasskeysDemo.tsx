@@ -1,17 +1,22 @@
+"use client";
+
 import { useState } from "react";
 import "./App.css";
 import { PasskeyCard } from "./PasskeyCard";
 import { SafeCard } from "./SafeCard";
 import { useLocalStorageState } from "./hooks/useLocalStorageState";
-import { PasskeyLocalStorageFormat, createPasskey, toLocalStorageFormat } from "./logic/passkeys";
+import {
+  PasskeyLocalStorageFormat,
+  createPasskey,
+  toLocalStorageFormat,
+} from "./logic/passkeys";
 
 const PASSKEY_LOCALSTORAGE_KEY = "passkeyId";
 
 export const SafePasskeysDemo: React.FC = () => {
-  const [passkey, setPasskey] = useLocalStorageState<PasskeyLocalStorageFormat | undefined>(
-    PASSKEY_LOCALSTORAGE_KEY,
-    undefined,
-  );
+  const [passkey, setPasskey] = useLocalStorageState<
+    PasskeyLocalStorageFormat | undefined
+  >(PASSKEY_LOCALSTORAGE_KEY, undefined);
   const [error, setError] = useState<string>();
 
   const handleCreatePasskeyClick = async () => {
@@ -30,7 +35,10 @@ export const SafePasskeysDemo: React.FC = () => {
 
   return (
     <>
-      <PasskeyCard passkey={passkey} handleCreatePasskeyClick={handleCreatePasskeyClick} />
+      <PasskeyCard
+        passkey={passkey}
+        handleCreatePasskeyClick={handleCreatePasskeyClick}
+      />
 
       {passkey && <SafeCard passkey={passkey} />}
 
