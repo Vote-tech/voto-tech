@@ -712,7 +712,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/bignumber@npm:5.7.0, @ethersproject/bignumber@npm:^5.7.0":
+"@ethersproject/bignumber@npm:5.7.0, @ethersproject/bignumber@npm:^5.5.0, @ethersproject/bignumber@npm:^5.7.0":
   version: 5.7.0
   resolution: "@ethersproject/bignumber@npm:5.7.0"
   dependencies:
@@ -890,7 +890,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/random@npm:5.7.0, @ethersproject/random@npm:^5.7.0":
+"@ethersproject/random@npm:5.7.0, @ethersproject/random@npm:^5.5.1, @ethersproject/random@npm:^5.7.0":
   version: 5.7.0
   resolution: "@ethersproject/random@npm:5.7.0"
   dependencies:
@@ -949,7 +949,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/strings@npm:5.7.0, @ethersproject/strings@npm:^5.7.0":
+"@ethersproject/strings@npm:5.7.0, @ethersproject/strings@npm:^5.5.0, @ethersproject/strings@npm:^5.6.1, @ethersproject/strings@npm:^5.7.0":
   version: 5.7.0
   resolution: "@ethersproject/strings@npm:5.7.0"
   dependencies:
@@ -2327,6 +2327,232 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pcd/eddsa-frog-pcd@npm:0.3.0":
+  version: 0.3.0
+  resolution: "@pcd/eddsa-frog-pcd@npm:0.3.0"
+  dependencies:
+    "@pcd/eddsa-pcd": 0.6.0
+    "@pcd/pcd-types": 0.11.0
+    "@pcd/util": 0.5.0
+    chai: ^4.3.7
+    json-bigint: ^1.0.0
+    lodash: ^4.17.21
+    uuid: ^9.0.0
+  checksum: fd86118559bd99115ed24050ac8795a481f8b6f6ca248fc882bd10cba60ba34d612906ced0b0f0d5746721d6ecb6b061557a1ede82709e5be1ffcd0e383ec066
+  languageName: node
+  linkType: hard
+
+"@pcd/eddsa-pcd@npm:0.6.0, @pcd/eddsa-pcd@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@pcd/eddsa-pcd@npm:0.6.0"
+  dependencies:
+    "@pcd/pcd-types": 0.11.0
+    "@pcd/util": 0.5.0
+    circomlibjs: ^0.1.7
+    uuid: ^9.0.0
+  checksum: 713ccd6cb4411d950348e22eebf3e4f30d04777d2ec0b250072b388130218addfe0897e9715fc6397a6b8d4308723c6344b88e702109e53d1b5dc66998138b13
+  languageName: node
+  linkType: hard
+
+"@pcd/eddsa-ticket-pcd@npm:0.6.0, @pcd/eddsa-ticket-pcd@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@pcd/eddsa-ticket-pcd@npm:0.6.0"
+  dependencies:
+    "@pcd/eddsa-pcd": 0.6.0
+    "@pcd/pcd-types": 0.11.0
+    "@pcd/util": 0.5.0
+    chai: ^4.3.7
+    json-bigint: ^1.0.0
+    lodash: ^4.17.21
+    url-join: 4.0.1
+    uuid: ^9.0.0
+  checksum: 9c3f6f99da852f60f0c7bf0d4671c92b56c347212f290651c0ba370ad273a1e90ee0aaa9c525c8832fd578a9d57d17c6eaf9b19e75e0bfcce3d2844c596af257
+  languageName: node
+  linkType: hard
+
+"@pcd/email-pcd@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@pcd/email-pcd@npm:0.6.0"
+  dependencies:
+    "@pcd/eddsa-pcd": 0.6.0
+    "@pcd/pcd-types": 0.11.0
+    "@pcd/util": 0.5.0
+    chai: ^4.3.7
+    json-bigint: ^1.0.0
+    lodash: ^4.17.21
+    uuid: ^9.0.0
+  checksum: 3cdc5a248955aa1dae6d04c786437b5bd58555dc6e8dad7366229f46f2378d75c2f029b471a3ae62f7519c8286f6d363dbc1726e41c62991da12a8ff0212efe5
+  languageName: node
+  linkType: hard
+
+"@pcd/emitter@npm:0.5.0":
+  version: 0.5.0
+  resolution: "@pcd/emitter@npm:0.5.0"
+  dependencies:
+    chai: ^4.3.7
+  checksum: 0602d685d68496574bafbed57950792298df71c72c25d5c57e7bdd1ed0076aa6ecb8c9a0e9d651811d8d922250ed083f9743a0c950381551dad853bc206eef1f
+  languageName: node
+  linkType: hard
+
+"@pcd/passport-crypto@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@pcd/passport-crypto@npm:0.11.0"
+  dependencies:
+    buffer: ^6.0.3
+    libsodium-wrappers-sumo: ^0.7.11
+  checksum: 0878f304901f63483966837292b3dd9df70784e6cd1a5c4b71cf42492b2efbc1e913de0d56f92585082a19841a56576a2d9f2b91e6c996e64205c8f18f840727
+  languageName: node
+  linkType: hard
+
+"@pcd/passport-interface@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@pcd/passport-interface@npm:0.11.0"
+  dependencies:
+    "@pcd/eddsa-frog-pcd": 0.3.0
+    "@pcd/eddsa-pcd": ^0.6.0
+    "@pcd/eddsa-ticket-pcd": 0.6.0
+    "@pcd/email-pcd": ^0.6.0
+    "@pcd/emitter": 0.5.0
+    "@pcd/passport-crypto": 0.11.0
+    "@pcd/pcd-collection": 0.11.0
+    "@pcd/pcd-types": 0.11.0
+    "@pcd/semaphore-group-pcd": 0.11.0
+    "@pcd/semaphore-identity-pcd": 0.11.0
+    "@pcd/semaphore-signature-pcd": 0.11.0
+    "@pcd/util": 0.5.0
+    "@semaphore-protocol/identity": ^3.15.2
+    fast-json-stable-stringify: ^2.1.0
+    js-sha256: ^0.10.1
+    lodash: ^4.17.21
+    url-join: 4.0.1
+    uuid: ^9.0.0
+    zod: ^3.22.4
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: a60a7dd9c3deb03bf48f7a230016440b2767d431410802b6caf965dbd9ec95800571c0ed124e17e063faa1b2fec5a0c4feccf209b927610927381f3006614ebc
+  languageName: node
+  linkType: hard
+
+"@pcd/pcd-collection@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@pcd/pcd-collection@npm:0.11.0"
+  dependencies:
+    "@pcd/emitter": 0.5.0
+    "@pcd/passport-crypto": 0.11.0
+    "@pcd/pcd-types": 0.11.0
+    "@pcd/semaphore-identity-pcd": 0.11.0
+    chai: ^4.3.7
+    fast-json-stable-stringify: ^2.1.0
+    lodash: ^4.17.21
+    uuid: ^9.0.0
+  checksum: 219c3d85d57a826523735e7115eb6498c14c470b8ce119db404f7e7d0d56857b6d2b34d0c9f4925a2ba55a4abc82fd22cbd56dc80c45fec0140eb38831ea7385
+  languageName: node
+  linkType: hard
+
+"@pcd/pcd-types@npm:0.11.0, @pcd/pcd-types@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@pcd/pcd-types@npm:0.11.0"
+  checksum: d8349f7c45049a50a91e754e132395743927bbc9e89e7a5835888589cd74dde0b904e9b72a3744d9ff9bcd8dfdd49519d07ecac3db0a4367135de8b486f25bfa
+  languageName: node
+  linkType: hard
+
+"@pcd/semaphore-group-pcd@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@pcd/semaphore-group-pcd@npm:0.11.0"
+  dependencies:
+    "@pcd/pcd-types": 0.11.0
+    "@pcd/semaphore-identity-pcd": 0.11.0
+    "@pcd/semaphore-signature-pcd": 0.11.0
+    "@pcd/util": 0.5.0
+    "@semaphore-protocol/group": ^3.15.2
+    "@semaphore-protocol/identity": ^3.15.2
+    "@semaphore-protocol/proof": ^3.15.2
+    json-bigint: ^1.0.0
+    typescript: ^5.3.3
+    uuid: ^9.0.0
+  checksum: c94d8a8d6dbc713b86ab511988247799918cffa0e57b2fe01fd630977df2be72f9f6a2265ad7b6d039af4ddd3e181d28f9a3865cebcdd001630423d2f29eca9d
+  languageName: node
+  linkType: hard
+
+"@pcd/semaphore-identity-pcd@npm:0.11.0, @pcd/semaphore-identity-pcd@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@pcd/semaphore-identity-pcd@npm:0.11.0"
+  dependencies:
+    "@pcd/pcd-types": 0.11.0
+    "@pcd/util": 0.5.0
+    "@semaphore-protocol/identity": ^3.15.2
+    json-bigint: ^1.0.0
+    uuid: ^9.0.0
+  checksum: f1ed536920aa4a781955847a19969ddb6a31524d21de52d79db551c0ed4122449eab4bc6f38efb41f8115757c3e5d735a50a8272ac61b78e899831bf2d45c84a
+  languageName: node
+  linkType: hard
+
+"@pcd/semaphore-signature-pcd@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@pcd/semaphore-signature-pcd@npm:0.11.0"
+  dependencies:
+    "@pcd/pcd-types": 0.11.0
+    "@pcd/semaphore-identity-pcd": 0.11.0
+    "@pcd/util": 0.5.0
+    "@semaphore-protocol/group": ^3.15.2
+    "@semaphore-protocol/identity": ^3.15.2
+    "@semaphore-protocol/proof": ^3.15.2
+    json-bigint: ^1.0.0
+    uuid: ^9.0.0
+  checksum: b71f8b0a2f738d915f6d2902d22320572bd918a298fcf19efee7b837474034cfaf7b1896e1d9fec41f34b66ba43143bd6658b906d2313f77122f15ac56e0506e
+  languageName: node
+  linkType: hard
+
+"@pcd/util@npm:0.5.0":
+  version: 0.5.0
+  resolution: "@pcd/util@npm:0.5.0"
+  dependencies:
+    buffer: ^6.0.3
+    email-validator: ^2.0.4
+    js-sha256: ^0.10.1
+    secure-random: ^1.1.2
+    uuid: ^9.0.0
+  checksum: ac809d3cd80b2212610376c14701563306ca6ff6ec7436fc4fb89935d37b843ad2a85edda942fd92b190b53975ded28a38429c8dbd3656bc3e9446cdf9e8e602
+  languageName: node
+  linkType: hard
+
+"@pcd/zk-eddsa-event-ticket-pcd@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@pcd/zk-eddsa-event-ticket-pcd@npm:0.6.0"
+  dependencies:
+    "@pcd/eddsa-pcd": 0.6.0
+    "@pcd/eddsa-ticket-pcd": 0.6.0
+    "@pcd/pcd-types": ^0.11.0
+    "@pcd/semaphore-identity-pcd": 0.11.0
+    "@pcd/semaphore-signature-pcd": 0.11.0
+    "@pcd/util": 0.5.0
+    "@semaphore-protocol/identity": ^3.15.2
+    circomlibjs: ^0.1.7
+    json-bigint: ^1.0.0
+    snarkjs: ^0.7.4
+    uuid: ^9.0.0
+  checksum: 53ade097545da9cb39afcab226343613fe9d81a773e64a3df942c964fcbb3cd56eb437f123c4d4980cd01d41fbe549d3eaa485aa8449d1cc8c4a8874b1ed5632
+  languageName: node
+  linkType: hard
+
+"@pcd/zuauth@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "@pcd/zuauth@npm:1.3.1"
+  dependencies:
+    "@pcd/eddsa-pcd": ^0.6.0
+    "@pcd/eddsa-ticket-pcd": ^0.6.0
+    "@pcd/passport-interface": ^0.11.0
+    "@pcd/pcd-types": ^0.11.0
+    "@pcd/semaphore-identity-pcd": ^0.11.0
+    "@pcd/zk-eddsa-event-ticket-pcd": ^0.6.0
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: c1160c1d7b30dc53b6b1d42a7a8a5e734a0bde77e8b82e0dc945b32ba1cf4c14966ff389b1d000ab41a3526cc90d6e74738a97dd0d42c92db56c63034fe7b167
+  languageName: node
+  linkType: hard
+
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
@@ -2653,6 +2879,7 @@ __metadata:
     "@ethersproject/providers": ^5.7.2
     "@headlessui/react": ^1.7.18
     "@heroicons/react": ^2.0.11
+    "@pcd/zuauth": ^1.3.1
     "@rainbow-me/rainbowkit": 1.3.5
     "@se-2/hardhat": "*"
     "@trivago/prettier-plugin-sort-imports": ^4.1.1
@@ -2680,7 +2907,7 @@ __metadata:
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react-refresh: ^0.4.7
-    ethers: ^6.10.0
+    ethers: ^5.0.24
     maci-crypto: 0.0.0-ci.f6073a6
     maci-domainobjs: 0.0.0-ci.f6073a6
     next: ^14.0.4
@@ -2709,6 +2936,48 @@ __metadata:
     zustand: ^4.1.2
   languageName: unknown
   linkType: soft
+
+"@semaphore-protocol/group@npm:^3.15.2":
+  version: 3.15.2
+  resolution: "@semaphore-protocol/group@npm:3.15.2"
+  dependencies:
+    "@ethersproject/bignumber": ^5.7.0
+    "@ethersproject/bytes": ^5.7.0
+    "@ethersproject/keccak256": ^5.7.0
+    "@zk-kit/incremental-merkle-tree": 1.1.0
+  checksum: 60fa928a2afa76e0d0145fca0a0f91bf47b39e58970e371765d2b27fcc0e82c704fb36e9c6e6ce1c4b2db8842adb75e86c2be20ebb40363be76710f6520f4177
+  languageName: node
+  linkType: hard
+
+"@semaphore-protocol/identity@npm:^3.15.2":
+  version: 3.15.2
+  resolution: "@semaphore-protocol/identity@npm:3.15.2"
+  dependencies:
+    "@ethersproject/bignumber": ^5.5.0
+    "@ethersproject/keccak256": ^5.7.0
+    "@ethersproject/random": ^5.5.1
+    "@ethersproject/strings": ^5.6.1
+    js-sha512: ^0.8.0
+  checksum: b523e93e2779a4c012e4b1ead50ba4a062bf4171c24369e32e87f1364405b9157bbdef091b51e748206cc16b7c8a777cb01f97bd22ba6ff37ca065e6cb714ee0
+  languageName: node
+  linkType: hard
+
+"@semaphore-protocol/proof@npm:^3.15.2":
+  version: 3.15.2
+  resolution: "@semaphore-protocol/proof@npm:3.15.2"
+  dependencies:
+    "@ethersproject/bignumber": ^5.5.0
+    "@ethersproject/bytes": ^5.7.0
+    "@ethersproject/keccak256": ^5.7.0
+    "@ethersproject/strings": ^5.5.0
+    "@zk-kit/groth16": 0.3.0
+    "@zk-kit/incremental-merkle-tree": 0.4.3
+  peerDependencies:
+    "@semaphore-protocol/group": 3.15.2
+    "@semaphore-protocol/identity": 3.15.2
+  checksum: 80d1b8ca98c830328bdb479b617baf1d8a02f9194aecea61ef6b981255445f33056be04782aadc50e33e495140f739b65fe0291358f3163a06f10ce670a2b54a
+  languageName: node
+  linkType: hard
 
 "@sentry/core@npm:5.30.0":
   version: 5.30.0
@@ -4837,12 +5106,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zk-kit/groth16@npm:0.3.0":
+  version: 0.3.0
+  resolution: "@zk-kit/groth16@npm:0.3.0"
+  dependencies:
+    circom_runtime: 0.1.24
+    ffjavascript: 0.2.60
+  checksum: f177fffd7e28c1f6617a67758c017bb962bde8829a6b90bea8053c0c164386b73b58cfe26c2481435bbc0de0c14d8301c23818e4a0450979bceb525f64e9db51
+  languageName: node
+  linkType: hard
+
 "@zk-kit/imt.sol@npm:2.0.0-beta.12":
   version: 2.0.0-beta.12
   resolution: "@zk-kit/imt.sol@npm:2.0.0-beta.12"
   dependencies:
     poseidon-solidity: 0.0.5
   checksum: dc116c95ba05db90e77563c203e071afb883d24844fef8d7854bfd365421ec6f5663afddbc929b4b81afa1241ca68139be88356367198bd0a43fed5886a2f4d8
+  languageName: node
+  linkType: hard
+
+"@zk-kit/incremental-merkle-tree@npm:0.4.3":
+  version: 0.4.3
+  resolution: "@zk-kit/incremental-merkle-tree@npm:0.4.3"
+  checksum: 582ef97bd2b1b9638ce7c8a941200a5cf0ab86975f767de233905e8af0ff72d31b44f2497595f0ff585e45c7491481cf4e027ee6486a136cd64498d4b16b3e29
+  languageName: node
+  linkType: hard
+
+"@zk-kit/incremental-merkle-tree@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@zk-kit/incremental-merkle-tree@npm:1.1.0"
+  checksum: 5f2d6dd2a4898aa75f72d5b3811ab965c369f0a51561250313849fb9a6a1163064c4887da3bea298d25e80a4bc79b3c6997edf6492a6a8fc157512bc3fcb5e23
   languageName: node
   linkType: hard
 
@@ -5679,6 +5972,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bignumber.js@npm:^9.0.0":
+  version: 9.1.2
+  resolution: "bignumber.js@npm:9.1.2"
+  checksum: 582c03af77ec9cb0ebd682a373ee6c66475db94a4325f92299621d544aa4bd45cb45fd60001610e94aef8ae98a0905fa538241d9638d4422d57abbeeac6fadaf
+  languageName: node
+  linkType: hard
+
 "binary-extensions@npm:^2.0.0":
   version: 2.3.0
   resolution: "binary-extensions@npm:2.3.0"
@@ -6234,6 +6534,17 @@ __metadata:
   bin:
     calcwit: calcwit.js
   checksum: 3071f1e0fba9a5fb41c940454edb911ce09edfd5d0bd12156ec79045a0bf3ff2cc5b35f46e84e42902ef8bb0a4166f428b75d0ceb363c0d485f1a111b27daba1
+  languageName: node
+  linkType: hard
+
+"circom_runtime@npm:0.1.24":
+  version: 0.1.24
+  resolution: "circom_runtime@npm:0.1.24"
+  dependencies:
+    ffjavascript: 0.2.60
+  bin:
+    calcwit: calcwit.js
+  checksum: 0654649ed64ace5562cec025648422970df885e79048b7942e283ef50f43142673acfd752ac2851917a81c43d4d42d37f5fdfc8df71d59ee81b873c19ea81a31
   languageName: node
   linkType: hard
 
@@ -7238,6 +7549,13 @@ __metadata:
     minimalistic-assert: ^1.0.1
     minimalistic-crypto-utils: ^1.0.1
   checksum: ec9105e4469eb3b32b0ee2579756c888ddf3f99d259aa0d65fccb906ee877768aaf8880caae73e3e669c9a4adeb3eb1945703aa974ec5000d2d33a239f4567eb
+  languageName: node
+  linkType: hard
+
+"email-validator@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "email-validator@npm:2.0.4"
+  checksum: e702fee24e1b9efb7e6a84abb309bebdb4ddde137fdb99a61e24bd82ac0b605be34e191b1c4d04fbc855be7b94cad967f932a456c0def2240303881f4e388f2d
   languageName: node
   linkType: hard
 
@@ -8445,7 +8763,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:^5.5.1, ethers@npm:^5.7.0, ethers@npm:^5.7.1, ethers@npm:^5.7.2, ethers@npm:~5.7.0":
+"ethers@npm:^5.0.24, ethers@npm:^5.5.1, ethers@npm:^5.7.0, ethers@npm:^5.7.1, ethers@npm:^5.7.2, ethers@npm:~5.7.0":
   version: 5.7.2
   resolution: "ethers@npm:5.7.2"
   dependencies:
@@ -8483,7 +8801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:^6.10.0, ethers@npm:^6.12.0, ethers@npm:^6.6.4":
+"ethers@npm:^6.12.0, ethers@npm:^6.6.4":
   version: 6.12.1
   resolution: "ethers@npm:6.12.1"
   dependencies:
@@ -8672,7 +8990,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stable-stringify@npm:^2.0.0":
+"fast-json-stable-stringify@npm:^2.0.0, fast-json-stable-stringify@npm:^2.1.0":
   version: 2.1.0
   resolution: "fast-json-stable-stringify@npm:2.1.0"
   checksum: b191531e36c607977e5b1c47811158733c34ccb3bfde92c44798929e9b4154884378536d26ad90dfecd32e1ffc09c545d23535ad91b3161a27ddbb8ebe0cbecb
@@ -8740,6 +9058,17 @@ __metadata:
     wasmcurves: 0.2.0
     web-worker: ^1.2.0
   checksum: d4e02263db4a94d111cdc7c1211ae96769370f5c8c3c338331e0ef99faed7b55e640bedf23fa8a83fc9a77f0e81140ea8f32e392812a00e15ca504221b879a4f
+  languageName: node
+  linkType: hard
+
+"ffjavascript@npm:0.2.60":
+  version: 0.2.60
+  resolution: "ffjavascript@npm:0.2.60"
+  dependencies:
+    wasmbuilder: 0.0.16
+    wasmcurves: 0.2.2
+    web-worker: ^1.2.0
+  checksum: 5dbd597ee108373af1ba1877757a08b47db4bcd7b3b043b260d4475a0b1125454de00fb214224f85d9e6e6a6c0a1cfabd1ba9a2b68279b99c581404266e78138
   languageName: node
   linkType: hard
 
@@ -10650,10 +10979,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-sha256@npm:^0.10.1":
+  version: 0.10.1
+  resolution: "js-sha256@npm:0.10.1"
+  checksum: 6eb5c9f95aa902cec1930f036deb3bc664024b75fede456c0ac74b855797776c18620f47efec36787077a56ba2f3b8d6aacc7733ff8a2b5bb9ce6b655a35c5e6
+  languageName: node
+  linkType: hard
+
 "js-sha3@npm:0.8.0, js-sha3@npm:^0.8.0":
   version: 0.8.0
   resolution: "js-sha3@npm:0.8.0"
   checksum: 75df77c1fc266973f06cce8309ce010e9e9f07ec35ab12022ed29b7f0d9c8757f5a73e1b35aa24840dced0dea7059085aa143d817aea9e188e2a80d569d9adce
+  languageName: node
+  linkType: hard
+
+"js-sha512@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "js-sha512@npm:0.8.0"
+  checksum: 32ca371ebd14c6c5c83360fd8b036cad2211537bef546b199ac8b901917299cab4c68f7f7c26ae72f836bbce0349cb463df9a62cdb4c90e38090fdb4db89ee87
   languageName: node
   linkType: hard
 
@@ -10707,6 +11050,15 @@ __metadata:
   bin:
     jsesc: bin/jsesc
   checksum: 4dc190771129e12023f729ce20e1e0bfceac84d73a85bc3119f7f938843fe25a4aeccb54b6494dce26fcf263d815f5f31acdefac7cc9329efb8422a4f4d9fa9d
+  languageName: node
+  linkType: hard
+
+"json-bigint@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "json-bigint@npm:1.0.0"
+  dependencies:
+    bignumber.js: ^9.0.0
+  checksum: c67bb93ccb3c291e60eb4b62931403e378906aab113ec1c2a8dd0f9a7f065ad6fd9713d627b732abefae2e244ac9ce1721c7a3142b2979532f12b258634ce6f6
   languageName: node
   linkType: hard
 
@@ -10978,6 +11330,22 @@ __metadata:
     prelude-ls: ~1.1.2
     type-check: ~0.3.2
   checksum: 0d084a524231a8246bb10fec48cdbb35282099f6954838604f3c7fc66f2e16fa66fd9cc2f3f20a541a113c4dafdf181e822c887c8a319c9195444e6c64ac395e
+  languageName: node
+  linkType: hard
+
+"libsodium-sumo@npm:^0.7.13":
+  version: 0.7.13
+  resolution: "libsodium-sumo@npm:0.7.13"
+  checksum: d0905530c53c27a0c01348eed8abc2ecf3725c0647545cc528ea4bbd0ee63b7a471b56abefec5b293086ee64b5ba7cf911a655cd2c36f400a4bfec6e2d152ebd
+  languageName: node
+  linkType: hard
+
+"libsodium-wrappers-sumo@npm:^0.7.11":
+  version: 0.7.13
+  resolution: "libsodium-wrappers-sumo@npm:0.7.13"
+  dependencies:
+    libsodium-sumo: ^0.7.13
+  checksum: cdaa7ae5d64e71e860b40b5f2fbaec156adc7bc5606f7d32655b6ab84c9878fd90b3a41e99cb96380f0b5727d1ee1c6ad5b440bff35ce8289832e5c8cac99973
   languageName: node
   linkType: hard
 
@@ -13950,6 +14318,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"secure-random@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "secure-random@npm:1.1.2"
+  checksum: 44744464a2cb41dd812d482aff1a01b05842359480f2b0cbd6466d1da8cab8ebb2a84f070b0ddee34ab3867f1f775b2bc34ef3e860f27dc8177791595d6debc9
+  languageName: node
+  linkType: hard
+
 "semver@npm:6.3.1, semver@npm:^6.0.0, semver@npm:^6.3.0, semver@npm:^6.3.1":
   version: 6.3.1
   resolution: "semver@npm:6.3.1"
@@ -15716,6 +16091,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"url-join@npm:4.0.1":
+  version: 4.0.1
+  resolution: "url-join@npm:4.0.1"
+  checksum: f74e868bf25dbc8be6a8d7237d4c36bb5b6c62c72e594d5ab1347fe91d6af7ccd9eb5d621e30152e4da45c2e9a26bec21390e911ab54a62d4d82e76028374ee5
+  languageName: node
+  linkType: hard
+
 "use-callback-ref@npm:^1.3.0":
   version: 1.3.2
   resolution: "use-callback-ref@npm:1.3.2"
@@ -15830,7 +16212,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^9.0.1":
+"uuid@npm:^9.0.0, uuid@npm:^9.0.1":
   version: 9.0.1
   resolution: "uuid@npm:9.0.1"
   bin:
@@ -16534,6 +16916,13 @@ __metadata:
   peerDependencies:
     ethers: ~5.7.0
   checksum: 3b23de5bf258149449d7f2e548c84d3b0552c3077aef769844221f229631ae1f08e6739900047ae618193498e0a640d88f215d849043bf4fca14e067cce652db
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.22.4":
+  version: 3.23.8
+  resolution: "zod@npm:3.23.8"
+  checksum: 15949ff82118f59c893dacd9d3c766d02b6fa2e71cf474d5aa888570c469dbf5446ac5ad562bb035bf7ac9650da94f290655c194f4a6de3e766f43febd432c5c
   languageName: node
   linkType: hard
 

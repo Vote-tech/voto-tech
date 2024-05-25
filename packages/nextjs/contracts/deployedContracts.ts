@@ -47,50 +47,49 @@ const deployedContracts = {
       ],
       deploymentBlockNumber: 1,
     },
-    FreeForAllGatekeeper: {
+    Groth16Verifier: {
       address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
       abi: [
         {
-          inputs: [],
-          stateMutability: "payable",
-          type: "constructor",
-        },
-        {
           inputs: [
             {
-              internalType: "address",
-              name: "_address",
-              type: "address",
+              internalType: "uint256[2]",
+              name: "_pA",
+              type: "uint256[2]",
             },
             {
-              internalType: "bytes",
-              name: "_data",
-              type: "bytes",
+              internalType: "uint256[2][2]",
+              name: "_pB",
+              type: "uint256[2][2]",
             },
-          ],
-          name: "register",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
             {
-              internalType: "address",
-              name: "_maci",
-              type: "address",
+              internalType: "uint256[2]",
+              name: "_pC",
+              type: "uint256[2]",
+            },
+            {
+              internalType: "uint256[38]",
+              name: "_pubSignals",
+              type: "uint256[38]",
             },
           ],
-          name: "setMaciInstance",
-          outputs: [],
-          stateMutability: "nonpayable",
+          name: "verifyProof",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
       ],
+      inheritedFunctions: {},
       deploymentBlockNumber: 3,
     },
     MACIWrapper: {
-      address: "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e",
+      address: "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0",
       abi: [
         {
           inputs: [
@@ -1538,10 +1537,10 @@ const deployedContracts = {
         topupCredit: "maci-contracts/contracts/MACI.sol",
         transferOwnership: "maci-contracts/contracts/MACI.sol",
       },
-      deploymentBlockNumber: 23,
+      deploymentBlockNumber: 25,
     },
     MessageProcessorFactory: {
-      address: "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
+      address: "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
       abi: [
         {
           inputs: [],
@@ -1596,10 +1595,10 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      deploymentBlockNumber: 19,
+      deploymentBlockNumber: 21,
     },
     PollFactory: {
-      address: "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+      address: "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
       abi: [
         {
           inputs: [],
@@ -1720,10 +1719,10 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      deploymentBlockNumber: 17,
+      deploymentBlockNumber: 19,
     },
     PoseidonT3: {
-      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
       abi: [
         {
           inputs: [
@@ -1745,10 +1744,10 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      deploymentBlockNumber: 9,
+      deploymentBlockNumber: 11,
     },
     PoseidonT4: {
-      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      address: "0x0165878A594ca255338adfa4d48449f69242Eb8F",
       abi: [
         {
           inputs: [
@@ -1770,10 +1769,10 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      deploymentBlockNumber: 11,
+      deploymentBlockNumber: 13,
     },
     PoseidonT5: {
-      address: "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+      address: "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
       abi: [
         {
           inputs: [
@@ -1795,10 +1794,10 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      deploymentBlockNumber: 13,
+      deploymentBlockNumber: 15,
     },
     PoseidonT6: {
-      address: "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+      address: "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
       abi: [
         {
           inputs: [
@@ -1820,10 +1819,10 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      deploymentBlockNumber: 15,
+      deploymentBlockNumber: 17,
     },
     TallyFactory: {
-      address: "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+      address: "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e",
       abi: [
         {
           inputs: [],
@@ -1883,10 +1882,10 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      deploymentBlockNumber: 21,
+      deploymentBlockNumber: 23,
     },
     TopupCredit: {
-      address: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
       abi: [
         {
           inputs: [],
@@ -2338,10 +2337,10 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      deploymentBlockNumber: 7,
+      deploymentBlockNumber: 9,
     },
     Verifier: {
-      address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      address: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
       abi: [
         {
           inputs: [],
@@ -2498,10 +2497,10 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      deploymentBlockNumber: 5,
+      deploymentBlockNumber: 7,
     },
     VkRegistry: {
-      address: "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82",
+      address: "0x9A676e781A523b5d0C0e43731313A708CB607508",
       abi: [
         {
           inputs: [],
@@ -3761,7 +3760,210 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      deploymentBlockNumber: 26,
+      deploymentBlockNumber: 28,
+    },
+    ZupassGatekeeper: {
+      address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_validEventId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "_validSigner1",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "_validSigner2",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "_verifier",
+              type: "address",
+            },
+          ],
+          stateMutability: "payable",
+          type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "AlreadyRegistered",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "InvalidEventId",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "InvalidProof",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "InvalidSigners",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "InvalidWatermark",
+          type: "error",
+        },
+        {
+          inputs: [],
+          name: "OnlyMACI",
+          type: "error",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "owner",
+              type: "address",
+            },
+          ],
+          name: "OwnableInvalidOwner",
+          type: "error",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "account",
+              type: "address",
+            },
+          ],
+          name: "OwnableUnauthorizedAccount",
+          type: "error",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "previousOwner",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "OwnershipTransferred",
+          type: "event",
+        },
+        {
+          inputs: [],
+          name: "maci",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_user",
+              type: "address",
+            },
+            {
+              internalType: "bytes",
+              name: "_data",
+              type: "bytes",
+            },
+          ],
+          name: "register",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "registeredUsers",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "renounceOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_maci",
+              type: "address",
+            },
+          ],
+          name: "setMaciInstance",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "transferOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {
+        register: "maci-contracts/contracts/gatekeepers/SignUpGatekeeper.sol",
+        setMaciInstance: "maci-contracts/contracts/gatekeepers/SignUpGatekeeper.sol",
+      },
+      deploymentBlockNumber: 5,
     },
   },
 } as const;
