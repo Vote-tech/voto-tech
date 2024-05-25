@@ -13,6 +13,8 @@ import { MACIWrapper, SignUpGatekeeper } from "../typechain-types";
 const deployContracts: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployer } = await hre.getNamedAccounts();
 
+  console.log(`Deployer is: ${deployer}`); //this is to check the deployer
+
   const poseidonT3 = await hre.ethers.getContract("PoseidonT3", deployer);
   const poseidonT4 = await hre.ethers.getContract("PoseidonT4", deployer);
   const poseidonT5 = await hre.ethers.getContract("PoseidonT5", deployer);
