@@ -22,7 +22,7 @@ export const useContractLogs = (address: Address) => {
     fetchLogs();
 
     return client.watchBlockNumber({
-      onBlockNumber: async (blockNumber, prevBlockNumber) => {
+      onBlockNumber: async prevBlockNumber => {
         const newLogs = await client.getLogs({
           address: address,
           fromBlock: prevBlockNumber,

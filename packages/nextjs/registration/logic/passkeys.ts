@@ -1,5 +1,5 @@
 import { Buffer } from "buffer";
-import { ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 
 type PasskeyCredential = {
   id: "string";
@@ -176,9 +176,9 @@ function extractSignature(
     const start = offset + 2;
     const end = start + len;
     const n = BigInt(
-      ethers.hexlify(new Uint8Array(view.buffer.slice(start, end))),
+      ethers.utils.hexlify(new Uint8Array(view.buffer.slice(start, end))),
     );
-    check(n < ethers.MaxUint256);
+    check(BigNumber.from(n) < ethers.constants.MaxUint256);
     return [n, end] as const;
   };
   const [r, sOffset] = readInt(2);
@@ -209,7 +209,7 @@ function extractClientDataFields(
   }
 
   const [, fields] = match;
-  return ethers.hexlify(ethers.toUtf8Bytes(fields));
+  return ethers.utils.hexlify(ethers.utils.toUtf8Bytes(fields));
 }
 
 export {

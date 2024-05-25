@@ -31,9 +31,10 @@ async function signAndSendUserOp(
   smartAccount: SafeAccount,
   userOp: UserOperation,
   passkey: PasskeyLocalStorageFormat,
-  entryPoint: string = process.env.NEXT_PUBLIC_ENTRYPOINT_ADDRESS ?? "",
-  chainId: ethers.BigNumberish = process.env
-    .NEXT_PUBLIC_CHAIN_ID as ethers.BigNumberish,
+  entryPoint: string = process.env.NEXT_PUBLIC_ENTRYPOINT_ADDRESS as string,
+  chainId: bigint = process.env.NEXT_PUBLIC_CHAIN_ID
+    ? BigInt(process.env.NEXT_PUBLIC_CHAIN_ID)
+    : 0n,
   bundlerUrl: string = process.env.NEXT_PUBLIC_BUNDLER_URL as string,
 ): Promise<SendUseroperationResponse> {
   const safeInitOpHash = SafeAccount.getUserOperationEip712Hash(
@@ -46,7 +47,7 @@ async function signAndSendUserOp(
 
   const assertion = (await navigator.credentials.get({
     publicKey: {
-      challenge: ethers.getBytes(safeInitOpHash),
+      challenge: ethers.utils.arrayify(safeInitOpHash),
       allowCredentials: [
         { type: "public-key", id: hexStringToUint8Array(passkey.rawId) },
       ],
