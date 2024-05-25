@@ -7607,6 +7607,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-readable-tailwind@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "eslint-plugin-readable-tailwind@npm:1.5.0"
+  peerDependencies:
+    eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
+    tailwindcss: ">=3.3.0"
+  checksum: 3cb6d8c30a7ca8d168cf98d198f390732dd790f47b134002a12ffa7ae87f28338ee98167c435a90ea4f9886abeece5d63dba2efed88adff632f8a577a2cb4c52
+  languageName: node
+  linkType: hard
+
 "eslint-scope@npm:^5.1.1":
   version: 5.1.1
   resolution: "eslint-scope@npm:5.1.1"
@@ -14168,6 +14178,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
+    eslint-plugin-readable-tailwind: ^1.5.0
     husky: ^8.0.1
     lint-staged: ^13.0.3
   languageName: unknown
