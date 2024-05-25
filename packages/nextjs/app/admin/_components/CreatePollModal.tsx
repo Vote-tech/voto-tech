@@ -46,7 +46,10 @@ export default function Example({
   };
 
   const handleModeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setPollData({ ...pollData, mode: e.target.value === "0" ? EMode.QV : EMode.NON_QV });
+    setPollData({
+      ...pollData,
+      mode: e.target.value === "0" ? EMode.QV : EMode.NON_QV,
+    });
   };
 
   const handleEditTitleClick = () => {
@@ -63,7 +66,9 @@ export default function Example({
     setPollData({ ...pollData, options: newOptions });
   }
 
-  const duration = Math.round((pollData.expiry.getTime() - new Date().getTime()) / 1000);
+  const duration = Math.round(
+    (pollData.expiry.getTime() - new Date().getTime()) / 1000,
+  );
 
   const { writeAsync } = useScaffoldContractWrite({
     contractName: "MACIWrapper",
@@ -82,19 +87,25 @@ export default function Example({
     for (const option of pollData.options) {
       if (!option) {
         // TODO: throw error that the option cannot be blank
-        notification.error("Option cannot be blank", { showCloseButton: false });
+        notification.error("Option cannot be blank", {
+          showCloseButton: false,
+        });
         return;
       }
     }
 
     if (duration < 60) {
       // TODO: throw error that the expiry cannot be before atleast 1 min of creation
-      notification.error("Expiry cannot be before atleast 1 min of creation", { showCloseButton: false });
+      notification.error("Expiry cannot be before atleast 1 min of creation", {
+        showCloseButton: false,
+      });
       return;
     }
 
     if (pollData.pollType === PollType.NOT_SELECTED) {
-      notification.error("Please select a poll type", { showCloseButton: false });
+      notification.error("Please select a poll type", {
+        showCloseButton: false,
+      });
       return;
     }
 
@@ -113,7 +124,10 @@ export default function Example({
   return (
     <Modal show={show} setOpen={setOpen}>
       <div className="mt-3 text-center sm:mt-5 mb-6">
-        <Dialog.Title as="h3" className="font-bold leading-6 text-2xl text-neutral-content">
+        <Dialog.Title
+          as="h3"
+          className="font-bold leading-6 text-2xl text-neutral-content"
+        >
           Create a Poll
         </Dialog.Title>
       </div>
@@ -122,13 +136,15 @@ export default function Example({
         {isEditingTitle ? (
           <input
             type="text"
-            className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none bg-white text-black"
+            className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none "
             placeholder="Enter Poll Title"
             value={pollData.title}
             onChange={handleTitleChange}
           />
         ) : (
-          <h2 className="text-xl font-semibold font-mono text-neutral-content mb-0 mt-2">{pollData.title}</h2>
+          <h2 className="text-xl font-semibold font-mono text-neutral-content mb-0 mt-2">
+            {pollData.title}
+          </h2>
         )}
 
         <label className="btn btn-circle swap swap-rotate ml-3 bg-primary hover:bg-primary-content text-primary-content hover:text-primary">
@@ -157,15 +173,20 @@ export default function Example({
       <div className="mb-2 text-neutral-content">Select the expiry date</div>
       <input
         type="datetime-local"
-        className="border bg-secondary text-neutral rounded-xl px-4 py-2 w-full focus:outline-none"
-        value={pollData.expiry.toLocaleString("sv").replace(" ", "T").slice(0, -3)}
-        onChange={e => setPollData({ ...pollData, expiry: new Date(e.target.value) })}
+        className="border  rounded-xl px-4 py-2 w-full focus:outline-none"
+        value={pollData.expiry
+          .toLocaleString("sv")
+          .replace(" ", "T")
+          .slice(0, -3)}
+        onChange={e =>
+          setPollData({ ...pollData, expiry: new Date(e.target.value) })
+        }
       />
 
       {/* Poll Type Selector Here */}
-      <div className="mt-3 mb-2 text-neutral-content">Select the poll type</div>
+      <div className="mt-3 mb-2 ">Select the poll type</div>
       <select
-        className="select bg-secondary text-neutral w-full rounded-xl"
+        className="select  w-full rounded-xl"
         value={pollData.pollType}
         onChange={handlePollTypeChange}
       >
@@ -173,14 +194,20 @@ export default function Example({
           Select Poll Type
         </option>
         <option value={PollType.SINGLE_VOTE}>Single Candidate Select</option>
-        <option value={PollType.MULTIPLE_VOTE}>Multiple Candidate Select</option>
-        <option value={PollType.WEIGHTED_MULTIPLE_VOTE}>Weighted-Multiple Candidate Select</option>
+        <option value={PollType.MULTIPLE_VOTE}>
+          Multiple Candidate Select
+        </option>
+        <option value={PollType.WEIGHTED_MULTIPLE_VOTE}>
+          Weighted-Multiple Candidate Select
+        </option>
       </select>
 
       {/* Quadratic Vote or Non Quadratic Vote Selector Here */}
-      <div className="mt-3 mb-2 text-neutral-content">Quadratic Vote or Non Quadratic Vote</div>
+      <div className="mt-3 mb-2 text-neutral-content">
+        Quadratic Vote or Non Quadratic Vote
+      </div>
       <select
-        className="select bg-secondary text-neutral w-full rounded-xl"
+        className="select w-full rounded-xl"
         value={pollData.mode}
         onChange={handleModeChange}
       >
@@ -188,16 +215,16 @@ export default function Example({
         <option value={EMode.NON_QV}>Non Quadratic Vote</option>
       </select>
 
-      <div className="w-full h-[0.5px] bg-[#3647A4] shadow-2xl my-5" />
+      <div className="w-full h-[0.5px] bg-accent shadow-2xl my-5" />
 
-      <div className="mb-3 text-neutral-content">Create the options</div>
+      <div className="mb-3">Create the options</div>
 
       {pollData.options.map((option, index) => (
         <div key={index} className="mb-2 flex flex-row">
           <input
             type="text"
-            className="border border-[#3647A4] bg-secondary text-neutral rounded-md px-4 py-2 w-full focus:outline-none "
-            placeholder={`Candidate ${index + 1}`}
+            className="border border-accent rounded-md px-4 py-2 w-full focus:outline-none "
+            placeholder={`Option ${index + 1}`}
             value={option}
             onChange={e => handleOptionChange(index, e.target.value)}
           />

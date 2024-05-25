@@ -12,8 +12,8 @@ import {
   DocumentDuplicateIcon,
   QrCodeIcon,
 } from "@heroicons/react/24/outline";
-import { BlockieAvatar, isENS } from "~~/components/scaffold-eth";
-import { useOutsideClick } from "~~/hooks/scaffold-eth";
+import { Balance, BlockieAvatar, isENS } from "~~/components/scaffold-eth";
+import { useNetworkColor, useOutsideClick } from "~~/hooks/scaffold-eth";
 import { getTargetNetworks } from "~~/utils/scaffold-eth";
 
 const allowedNetworks = getTargetNetworks();
@@ -23,6 +23,7 @@ type AddressInfoDropdownProps = {
   blockExplorerAddressLink: string | undefined;
   displayName: string;
   ensAvatar?: string;
+  chain?: any;
 };
 
 export const AddressInfoDropdown = ({
@@ -30,10 +31,11 @@ export const AddressInfoDropdown = ({
   ensAvatar,
   displayName,
   blockExplorerAddressLink,
+  chain,
 }: AddressInfoDropdownProps) => {
   const { disconnect } = useDisconnect();
   const checkSumAddress = getAddress(address);
-
+  const networkColor = useNetworkColor();
   const [addressCopied, setAddressCopied] = useState(false);
 
   const [selectingNetwork, setSelectingNetwork] = useState(false);
@@ -47,11 +49,30 @@ export const AddressInfoDropdown = ({
   return (
     <>
       <details ref={dropdownRef} className="dropdown dropdown-end leading-3">
-        <summary tabIndex={0} className="btn btn-secondary btn-sm pl-0 pr-2 shadow-md dropdown-toggle gap-0 !h-auto">
-          <BlockieAvatar address={checkSumAddress} size={30} ensImage={ensAvatar} />
+        <summary
+          tabIndex={0}
+          className="btn btn-secondary btn-sm pl-0 pr-2 shadow-md dropdown-toggle gap-0 !h-auto "
+        >
+          <BlockieAvatar
+            address={checkSumAddress}
+            size={30}
+            ensImage={ensAvatar}
+          />
           <span className="ml-2 mr-1">
-            {isENS(displayName) ? displayName : checkSumAddress?.slice(0, 6) + "..." + checkSumAddress?.slice(-4)}
+            {isENS(displayName)
+              ? displayName
+              : checkSumAddress?.slice(0, 6) +
+                "..." +
+                checkSumAddress?.slice(-4)}
           </span>
+
+          <div className="flex flex-col items-center mr-1">
+            <Balance address={address} className="min-h-0 h-auto" />
+            <span className="text-xs" style={{ color: networkColor }}>
+              {chain.name}
+            </span>
+          </div>
+
           <ChevronDownIcon className="h-6 w-4 ml-2 sm:ml-0" />
         </summary>
         <ul
@@ -89,13 +110,19 @@ export const AddressInfoDropdown = ({
             )}
           </li>
           <li className={selectingNetwork ? "hidden" : ""}>
-            <label htmlFor="qrcode-modal" className="btn-sm !rounded-xl flex gap-3 py-3">
+            <label
+              htmlFor="qrcode-modal"
+              className="btn-sm !rounded-xl flex gap-3 py-3"
+            >
               <QrCodeIcon className="h-6 w-4 ml-2 sm:ml-0" />
               <span className="whitespace-nowrap">View QR Code</span>
             </label>
           </li>
           <li className={selectingNetwork ? "hidden" : ""}>
-            <button className="menu-item btn-sm !rounded-xl flex gap-3 py-3" type="button">
+            <button
+              className="menu-item btn-sm !rounded-xl flex gap-3 py-3"
+              type="button"
+            >
               <ArrowTopRightOnSquareIcon className="h-6 w-4 ml-2 sm:ml-0" />
               <a
                 target="_blank"
@@ -116,7 +143,8 @@ export const AddressInfoDropdown = ({
                   setSelectingNetwork(true);
                 }}
               >
-                <ArrowsRightLeftIcon className="h-6 w-4 ml-2 sm:ml-0" /> <span>Switch Network</span>
+                <ArrowsRightLeftIcon className="h-6 w-4 ml-2 sm:ml-0" />{" "}
+                <span>Switch Network</span>
               </button>
             </li>
           ) : null}
@@ -126,7 +154,8 @@ export const AddressInfoDropdown = ({
               type="button"
               onClick={() => disconnect()}
             >
-              <ArrowLeftOnRectangleIcon className="h-6 w-4 ml-2 sm:ml-0" /> <span>Disconnect</span>
+              <ArrowLeftOnRectangleIcon className="h-6 w-4 ml-2 sm:ml-0" />{" "}
+              <span>Disconnect</span>
             </button>
           </li>
         </ul>
