@@ -1,4 +1,7 @@
-import { ArrowLongLeftIcon, ArrowLongRightIcon } from "@heroicons/react/20/solid";
+import {
+  ArrowLongLeftIcon,
+  ArrowLongRightIcon,
+} from "@heroicons/react/20/solid";
 
 function PaginatorButton({
   pageNumber,
@@ -50,43 +53,69 @@ export default function Paginator({
             {currentPage > 5 ? (
               <>
                 {new Array(3).fill(0).map((_, index) => (
-                  <PaginatorButton key={index} pageNumber={index + 1} setPageNumber={setPageNumber} />
+                  <PaginatorButton
+                    key={index}
+                    pageNumber={index + 1}
+                    setPageNumber={setPageNumber}
+                  />
                 ))}
 
                 <span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
                   ...
                 </span>
-                <PaginatorButton pageNumber={currentPage - 1} setPageNumber={setPageNumber} />
+                <PaginatorButton
+                  pageNumber={currentPage - 1}
+                  setPageNumber={setPageNumber}
+                />
               </>
             ) : (
               <>
                 {new Array(currentPage - 1).fill(0).map((_, index) => (
-                  <PaginatorButton key={index} pageNumber={index + 1} setPageNumber={setPageNumber} />
+                  <PaginatorButton
+                    key={index}
+                    pageNumber={index + 1}
+                    setPageNumber={setPageNumber}
+                  />
                 ))}
               </>
             )}
           </>
         )}
 
-        <PaginatorButton pageNumber={currentPage} setPageNumber={setPageNumber} active />
+        <PaginatorButton
+          pageNumber={currentPage}
+          setPageNumber={setPageNumber}
+          active
+        />
 
         {currentPage < totalPages && (
           <>
             {totalPages - currentPage >= 5 ? (
               <>
-                <PaginatorButton pageNumber={currentPage + 1} setPageNumber={setPageNumber} />
+                <PaginatorButton
+                  pageNumber={currentPage + 1}
+                  setPageNumber={setPageNumber}
+                />
 
                 <span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
                   ...
                 </span>
                 {new Array(3).fill(0).map((_, index) => (
-                  <PaginatorButton key={index} pageNumber={totalPages + index - 2} setPageNumber={setPageNumber} />
+                  <PaginatorButton
+                    key={index}
+                    pageNumber={totalPages + index - 2}
+                    setPageNumber={setPageNumber}
+                  />
                 ))}
               </>
             ) : (
               <>
                 {new Array(totalPages - currentPage).fill(0).map((_, index) => (
-                  <PaginatorButton key={index} pageNumber={currentPage + index + 1} setPageNumber={setPageNumber} />
+                  <PaginatorButton
+                    key={index}
+                    pageNumber={currentPage + index + 1}
+                    setPageNumber={setPageNumber}
+                  />
                 ))}
               </>
             )}

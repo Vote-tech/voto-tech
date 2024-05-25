@@ -1,11 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowsRightLeftIcon } from "@heroicons/react/24/outline";
-import { CommonInputProps, InputBase, SIGNED_NUMBER_REGEX } from "~~/components/scaffold-eth";
+import {
+  CommonInputProps,
+  InputBase,
+  SIGNED_NUMBER_REGEX,
+} from "~~/components/scaffold-eth";
 import { useGlobalState } from "~~/services/store/store";
 
 const MAX_DECIMALS_USD = 2;
 
-function etherValueToDisplayValue(usdMode: boolean, etherValue: string, nativeCurrencyPrice: number) {
+function etherValueToDisplayValue(
+  usdMode: boolean,
+  etherValue: string,
+  nativeCurrencyPrice: number,
+) {
   if (usdMode && nativeCurrencyPrice) {
     const parsedEthValue = parseFloat(etherValue);
     if (Number.isNaN(parsedEthValue)) {
@@ -14,7 +22,9 @@ function etherValueToDisplayValue(usdMode: boolean, etherValue: string, nativeCu
       // We need to round the value rather than use toFixed,
       // since otherwise a user would not be able to modify the decimal value
       return (
-        Math.round(parsedEthValue * nativeCurrencyPrice * 10 ** MAX_DECIMALS_USD) /
+        Math.round(
+          parsedEthValue * nativeCurrencyPrice * 10 ** MAX_DECIMALS_USD,
+        ) /
         10 ** MAX_DECIMALS_USD
       ).toString();
     }
@@ -23,7 +33,11 @@ function etherValueToDisplayValue(usdMode: boolean, etherValue: string, nativeCu
   }
 }
 
-function displayValueToEtherValue(usdMode: boolean, displayValue: string, nativeCurrencyPrice: number) {
+function displayValueToEtherValue(
+  usdMode: boolean,
+  displayValue: string,
+  nativeCurrencyPrice: number,
+) {
   if (usdMode && nativeCurrencyPrice) {
     const parsedDisplayValue = parseFloat(displayValue);
     if (Number.isNaN(parsedDisplayValue)) {
@@ -51,9 +65,14 @@ export const EtherInput = ({
   disabled,
   usdMode,
 }: CommonInputProps & { usdMode?: boolean }) => {
-  const [transitoryDisplayValue, setTransitoryDisplayValue] = useState<string>();
-  const nativeCurrencyPrice = useGlobalState(state => state.nativeCurrencyPrice);
-  const [internalUsdMode, setInternalUSDMode] = useState(nativeCurrencyPrice > 0 ? Boolean(usdMode) : false);
+  const [transitoryDisplayValue, setTransitoryDisplayValue] =
+    useState<string>();
+  const nativeCurrencyPrice = useGlobalState(
+    state => state.nativeCurrencyPrice,
+  );
+  const [internalUsdMode, setInternalUSDMode] = useState(
+    nativeCurrencyPrice > 0 ? Boolean(usdMode) : false,
+  );
 
   useEffect(() => {
     setInternalUSDMode(nativeCurrencyPrice > 0 ? Boolean(usdMode) : false);
@@ -62,8 +81,15 @@ export const EtherInput = ({
   // The displayValue is derived from the ether value that is controlled outside of the component
   // In usdMode, it is converted to its usd value, in regular mode it is unaltered
   const displayValue = useMemo(() => {
-    const newDisplayValue = etherValueToDisplayValue(internalUsdMode, value, nativeCurrencyPrice);
-    if (transitoryDisplayValue && parseFloat(newDisplayValue) === parseFloat(transitoryDisplayValue)) {
+    const newDisplayValue = etherValueToDisplayValue(
+      internalUsdMode,
+      value,
+      nativeCurrencyPrice,
+    );
+    if (
+      transitoryDisplayValue &&
+      parseFloat(newDisplayValue) === parseFloat(transitoryDisplayValue)
+    ) {
       return transitoryDisplayValue;
     }
     // Clear any transitory display values that might be set
@@ -93,7 +119,11 @@ export const EtherInput = ({
       setTransitoryDisplayValue(undefined);
     }
 
-    const newEthValue = displayValueToEtherValue(internalUsdMode, newValue, nativeCurrencyPrice);
+    const newEthValue = displayValueToEtherValue(
+      internalUsdMode,
+      newValue,
+      nativeCurrencyPrice,
+    );
     onChange(newEthValue);
   };
 
@@ -110,7 +140,11 @@ export const EtherInput = ({
       placeholder={placeholder}
       onChange={handleChangeNumber}
       disabled={disabled}
-      prefix={<span className="pl-4 -mr-2 text-accent self-center">{internalUsdMode ? "$" : "Ξ"}</span>}
+      prefix={
+        <span className="pl-4 -mr-2 text-accent self-center">
+          {internalUsdMode ? "$" : "Ξ"}
+        </span>
+      }
       suffix={
         <div
           className={`${
@@ -125,7 +159,10 @@ export const EtherInput = ({
             onClick={toggleMode}
             disabled={!internalUsdMode && !nativeCurrencyPrice}
           >
-            <ArrowsRightLeftIcon className="h-3 w-3 cursor-pointer" aria-hidden="true" />
+            <ArrowsRightLeftIcon
+              className="h-3 w-3 cursor-pointer"
+              aria-hidden="true"
+            />
           </button>
         </div>
       }

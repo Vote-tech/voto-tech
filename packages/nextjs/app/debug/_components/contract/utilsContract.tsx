@@ -4,9 +4,15 @@ import { AbiParameterTuple } from "~~/utils/scaffold-eth/contract";
 /**
  * Generates a key based on function metadata
  */
-const getFunctionInputKey = (functionName: string, input: AbiParameter, inputIndex: number): string => {
+const getFunctionInputKey = (
+  functionName: string,
+  input: AbiParameter,
+  inputIndex: number,
+): string => {
   const name = input?.name || `input_${inputIndex}_`;
-  return functionName + "_" + name + "_" + input.internalType + "_" + input.type;
+  return (
+    functionName + "_" + name + "_" + input.internalType + "_" + input.type
+  );
 };
 
 const isJsonString = (str: string) => {
@@ -40,9 +46,21 @@ const deepParseValues = (value: any): any => {
   }
 
   // Handle boolean values represented as strings
-  if (value === "true" || value === "1" || value === "0x1" || value === "0x01" || value === "0x0001") {
+  if (
+    value === "true" ||
+    value === "1" ||
+    value === "0x1" ||
+    value === "0x01" ||
+    value === "0x0001"
+  ) {
     return true;
-  } else if (value === "false" || value === "0" || value === "0x0" || value === "0x00" || value === "0x0000") {
+  } else if (
+    value === "false" ||
+    value === "0" ||
+    value === "0x0" ||
+    value === "0x00" ||
+    value === "0x0000"
+  ) {
     return false;
   }
 
@@ -76,7 +94,11 @@ const getInitalTupleFormState = (abiTupleParameter: AbiParameterTuple) => {
   if (abiTupleParameter.components.length === 0) return initialForm;
 
   abiTupleParameter.components.forEach((component, componentIndex) => {
-    const key = getFunctionInputKey(abiTupleParameter.name || "tuple", component, componentIndex);
+    const key = getFunctionInputKey(
+      abiTupleParameter.name || "tuple",
+      component,
+      componentIndex,
+    );
     initialForm[key] = "";
   });
   return initialForm;
@@ -86,7 +108,11 @@ const getInitalTupleArrayFormState = (abiTupleParameter: AbiParameterTuple) => {
   const initialForm: Record<string, any> = {};
   if (abiTupleParameter.components.length === 0) return initialForm;
   abiTupleParameter.components.forEach((component, componentIndex) => {
-    const key = getFunctionInputKey("0_" + abiTupleParameter.name || "tuple", component, componentIndex);
+    const key = getFunctionInputKey(
+      "0_" + abiTupleParameter.name || "tuple",
+      component,
+      componentIndex,
+    );
     initialForm[key] = "";
   });
   return initialForm;
@@ -105,7 +131,9 @@ const adjustInput = (input: AbiParameterTuple): AbiParameter => {
   } else if (input.components) {
     return {
       ...input,
-      components: input.components.map(value => adjustInput(value as AbiParameterTuple)),
+      components: input.components.map(value =>
+        adjustInput(value as AbiParameterTuple),
+      ),
     };
   }
   return input;
@@ -123,7 +151,9 @@ const transformComponents = (
 
   // Recursive case: wrap components in an additional tuple layer
   const wrappedComponents: AbiParameter = {
-    internalType: `${parentComponentData.internalType || "struct"}`.replace(/\[\]/g, "") + "[]".repeat(depth - 1),
+    internalType:
+      `${parentComponentData.internalType || "struct"}`.replace(/\[\]/g, "") +
+      "[]".repeat(depth - 1),
     name: `${parentComponentData.name || "tuple"}`,
     type: `tuple${"[]".repeat(depth - 1)}`,
     components: transformComponents(components, depth - 1, parentComponentData),
@@ -135,7 +165,9 @@ const transformComponents = (
 const transformAbiFunction = (abiFunction: AbiFunction): AbiFunction => {
   return {
     ...abiFunction,
-    inputs: abiFunction.inputs.map(value => adjustInput(value as AbiParameterTuple)),
+    inputs: abiFunction.inputs.map(value =>
+      adjustInput(value as AbiParameterTuple),
+    ),
   };
 };
 

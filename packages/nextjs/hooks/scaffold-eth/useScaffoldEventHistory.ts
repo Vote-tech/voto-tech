@@ -44,13 +44,20 @@ export const useScaffoldEventHistory = <
   receiptData,
   watch,
   enabled = true,
-}: UseScaffoldEventHistoryConfig<TContractName, TEventName, TBlockData, TTransactionData, TReceiptData>) => {
+}: UseScaffoldEventHistoryConfig<
+  TContractName,
+  TEventName,
+  TBlockData,
+  TTransactionData,
+  TReceiptData
+>) => {
   const [events, setEvents] = useState<any[]>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>();
   const [fromBlockUpdated, setFromBlockUpdated] = useState<bigint>(fromBlock);
 
-  const { data: deployedContractData, isLoading: deployedContractLoading } = useDeployedContractInfo(contractName);
+  const { data: deployedContractData, isLoading: deployedContractLoading } =
+    useDeployedContractInfo(contractName);
   const publicClient = usePublicClient();
   const { targetNetwork } = useTargetNetwork();
 
@@ -71,7 +78,10 @@ export const useScaffoldEventHistory = <
 
       const blockNumber = await publicClient.getBlockNumber({ cacheTime: 0 });
 
-      if ((fromBlock && blockNumber >= fromBlock) || blockNumber >= fromBlockUpdated) {
+      if (
+        (fromBlock && blockNumber >= fromBlock) ||
+        blockNumber >= fromBlockUpdated
+      ) {
         const logs = await publicClient.getLogs({
           address: deployedContractData?.address,
           event,
@@ -89,14 +99,20 @@ export const useScaffoldEventHistory = <
             block:
               blockData && logs[i].blockHash === null
                 ? null
-                : await publicClient.getBlock({ blockHash: logs[i].blockHash as Hash }),
+                : await publicClient.getBlock({
+                    blockHash: logs[i].blockHash as Hash,
+                  }),
             transaction:
               transactionData && logs[i].transactionHash !== null
-                ? await publicClient.getTransaction({ hash: logs[i].transactionHash as Hash })
+                ? await publicClient.getTransaction({
+                    hash: logs[i].transactionHash as Hash,
+                  })
                 : null,
             receipt:
               receiptData && logs[i].transactionHash !== null
-                ? await publicClient.getTransactionReceipt({ hash: logs[i].transactionHash as Hash })
+                ? await publicClient.getTransactionReceipt({
+                    hash: logs[i].transactionHash as Hash,
+                  })
                 : null,
           });
         }
@@ -153,7 +169,11 @@ export const useScaffoldEventHistory = <
         readEvents();
       }
     },
-    watch ? (targetNetwork.id !== chains.hardhat.id ? scaffoldConfig.pollingInterval : 4_000) : null,
+    watch
+      ? targetNetwork.id !== chains.hardhat.id
+        ? scaffoldConfig.pollingInterval
+        : 4_000
+      : null,
   );
 
   const eventHistoryData = useMemo(

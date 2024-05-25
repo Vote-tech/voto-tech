@@ -51,7 +51,9 @@ async function createPasskey(): Promise<PasskeyCredentialWithPubkeyCoordinates> 
   })) as PasskeyCredential | null;
 
   if (!passkeyCredential) {
-    throw new Error("Failed to generate passkey. Received null as a credential");
+    throw new Error(
+      "Failed to generate passkey. Received null as a credential",
+    );
   }
 
   // Import the public key to later export it to get the XY coordinates
@@ -68,18 +70,32 @@ async function createPasskey(): Promise<PasskeyCredentialWithPubkeyCoordinates> 
   );
 
   // Export the public key in JWK format and extract XY coordinates
-  const exportedKeyWithXYCoordinates = await crypto.subtle.exportKey("jwk", key);
+  const exportedKeyWithXYCoordinates = await crypto.subtle.exportKey(
+    "jwk",
+    key,
+  );
   if (!exportedKeyWithXYCoordinates.x || !exportedKeyWithXYCoordinates.y) {
     throw new Error("Failed to retrieve x and y coordinates");
   }
 
   // Create a PasskeyCredentialWithPubkeyCoordinates object
-  const passkeyWithCoordinates: PasskeyCredentialWithPubkeyCoordinates = Object.assign(passkeyCredential, {
-    pubkeyCoordinates: {
-      x: BigInt("0x" + Buffer.from(exportedKeyWithXYCoordinates.x, "base64").toString("hex")),
-      y: BigInt("0x" + Buffer.from(exportedKeyWithXYCoordinates.y, "base64").toString("hex")),
-    },
-  });
+  const passkeyWithCoordinates: PasskeyCredentialWithPubkeyCoordinates =
+    Object.assign(passkeyCredential, {
+      pubkeyCoordinates: {
+        x: BigInt(
+          "0x" +
+            Buffer.from(exportedKeyWithXYCoordinates.x, "base64").toString(
+              "hex",
+            ),
+        ),
+        y: BigInt(
+          "0x" +
+            Buffer.from(exportedKeyWithXYCoordinates.y, "base64").toString(
+              "hex",
+            ),
+        ),
+      },
+    });
 
   return passkeyWithCoordinates;
 }
@@ -98,7 +114,9 @@ export type PasskeyLocalStorageFormat = {
  * @param passkey - The passkey to be converted.
  * @returns The passkey in a format that can be stored in the local storage.
  */
-function toLocalStorageFormat(passkey: PasskeyCredentialWithPubkeyCoordinates): PasskeyLocalStorageFormat {
+function toLocalStorageFormat(
+  passkey: PasskeyCredentialWithPubkeyCoordinates,
+): PasskeyLocalStorageFormat {
   return {
     rawId: Buffer.from(passkey.rawId).toString("hex"),
     pubkeyCoordinates: passkey.pubkeyCoordinates,
@@ -111,7 +129,12 @@ function toLocalStorageFormat(passkey: PasskeyCredentialWithPubkeyCoordinates): 
  * @returns A boolean indicating whether the value is in the format of a Local Storage Passkey.
  */
 function isLocalStoragePasskey(x: unknown): x is PasskeyLocalStorageFormat {
-  return typeof x === "object" && x !== null && "rawId" in x && "pubkeyCoordinates" in x;
+  return (
+    typeof x === "object" &&
+    x !== null &&
+    "rawId" in x &&
+    "pubkeyCoordinates" in x
+  );
 }
 
 /**
@@ -121,7 +144,9 @@ function isLocalStoragePasskey(x: unknown): x is PasskeyLocalStorageFormat {
  * - <https://datatracker.ietf.org/doc/html/rfc3279#section-2.2.3>
  * - <https://en.wikipedia.org/wiki/X.690#BER_encoding>
  */
-function extractSignature(signature: ArrayBuffer | Uint8Array): [bigint, bigint] {
+function extractSignature(
+  signature: ArrayBuffer | Uint8Array,
+): [bigint, bigint] {
   let sig: ArrayBuffer;
   if (signature instanceof Uint8Array) {
     sig = signature.buffer;
@@ -150,7 +175,9 @@ function extractSignature(signature: ArrayBuffer | Uint8Array): [bigint, bigint]
     const len = view.getUint8(offset + 1);
     const start = offset + 2;
     const end = start + len;
-    const n = BigInt(ethers.hexlify(new Uint8Array(view.buffer.slice(start, end))));
+    const n = BigInt(
+      ethers.hexlify(new Uint8Array(view.buffer.slice(start, end))),
+    );
     check(n < ethers.MaxUint256);
     return [n, end] as const;
   };
@@ -167,9 +194,15 @@ function extractSignature(signature: ArrayBuffer | Uint8Array): [bigint, bigint]
  *
  * See <https://w3c.github.io/webauthn/#clientdatajson-serialization>
  */
-function extractClientDataFields(response: AuthenticatorAssertionResponse): string {
-  const clientDataJSON = new TextDecoder("utf-8").decode(response.clientDataJSON);
-  const match = clientDataJSON.match(/^\{"type":"webauthn.get","challenge":"[A-Za-z0-9\-_]{43}",(.*)\}$/);
+function extractClientDataFields(
+  response: AuthenticatorAssertionResponse,
+): string {
+  const clientDataJSON = new TextDecoder("utf-8").decode(
+    response.clientDataJSON,
+  );
+  const match = clientDataJSON.match(
+    /^\{"type":"webauthn.get","challenge":"[A-Za-z0-9\-_]{43}",(.*)\}$/,
+  );
 
   if (!match) {
     throw new Error("challenge not found in client data JSON");
@@ -179,4 +212,10 @@ function extractClientDataFields(response: AuthenticatorAssertionResponse): stri
   return ethers.hexlify(ethers.toUtf8Bytes(fields));
 }
 
-export { createPasskey, toLocalStorageFormat, isLocalStoragePasskey, extractSignature, extractClientDataFields };
+export {
+  createPasskey,
+  toLocalStorageFormat,
+  isLocalStoragePasskey,
+  extractSignature,
+  extractClientDataFields,
+};

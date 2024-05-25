@@ -1,6 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
-import { Chain, Hex, HttpTransport, PrivateKeyAccount, createWalletClient, http } from "viem";
+import {
+  Chain,
+  Hex,
+  HttpTransport,
+  PrivateKeyAccount,
+  createWalletClient,
+  http,
+} from "viem";
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
 import { WalletClient, usePublicClient } from "wagmi";
 
@@ -33,7 +40,9 @@ export const saveBurnerSK = (privateKey: Hex): void => {
 export const loadBurnerSK = (): Hex => {
   let currentSk: Hex = "0x";
   if (typeof window != "undefined" && window != null) {
-    currentSk = (window?.localStorage?.getItem?.(burnerStorageKey)?.replaceAll('"', "") ?? "0x") as Hex;
+    currentSk = (window?.localStorage
+      ?.getItem?.(burnerStorageKey)
+      ?.replaceAll('"', "") ?? "0x") as Hex;
   }
 
   if (!!currentSk && isValidSk(currentSk)) {
@@ -57,12 +66,17 @@ type BurnerAccount = {
  * Creates a burner wallet
  */
 export const useBurnerWallet = (): BurnerAccount => {
-  const [burnerSk, setBurnerSk] = useLocalStorage<Hex>(burnerStorageKey, newDefaultPrivateKey, {
-    initializeWithValue: false,
-  });
+  const [burnerSk, setBurnerSk] = useLocalStorage<Hex>(
+    burnerStorageKey,
+    newDefaultPrivateKey,
+    {
+      initializeWithValue: false,
+    },
+  );
 
   const publicClient = usePublicClient();
-  const [walletClient, setWalletClient] = useState<WalletClient<HttpTransport, Chain, PrivateKeyAccount>>();
+  const [walletClient, setWalletClient] =
+    useState<WalletClient<HttpTransport, Chain, PrivateKeyAccount>>();
   const [generatedPrivateKey, setGeneratedPrivateKey] = useState<Hex>("0x");
   const [account, setAccount] = useState<PrivateKeyAccount>();
   const isCreatingNewBurnerRef = useRef(false);
@@ -107,7 +121,9 @@ export const useBurnerWallet = (): BurnerAccount => {
    */
   useEffect(() => {
     if (burnerSk && publicClient.chain.id) {
-      let wallet: WalletClient<HttpTransport, Chain, PrivateKeyAccount> | undefined = undefined;
+      let wallet:
+        | WalletClient<HttpTransport, Chain, PrivateKeyAccount>
+        | undefined = undefined;
       if (isValidSk(burnerSk)) {
         const randomAccount = privateKeyToAccount(burnerSk);
 

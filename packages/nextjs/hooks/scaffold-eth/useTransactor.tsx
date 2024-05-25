@@ -1,10 +1,22 @@
 import { WriteContractResult, getPublicClient } from "@wagmi/core";
-import { Hash, SendTransactionParameters, TransactionReceipt, WalletClient } from "viem";
+import {
+  Hash,
+  SendTransactionParameters,
+  TransactionReceipt,
+  WalletClient,
+} from "viem";
 import { useWalletClient } from "wagmi";
-import { getBlockExplorerTxLink, getParsedError, notification } from "~~/utils/scaffold-eth";
+import {
+  getBlockExplorerTxLink,
+  getParsedError,
+  notification,
+} from "~~/utils/scaffold-eth";
 
 type TransactionFunc = (
-  tx: (() => Promise<WriteContractResult>) | (() => Promise<Hash>) | SendTransactionParameters,
+  tx:
+    | (() => Promise<WriteContractResult>)
+    | (() => Promise<Hash>)
+    | SendTransactionParameters,
   options?: {
     onBlockConfirmation?: (txnReceipt: TransactionReceipt) => void;
     blockConfirmations?: number;
@@ -14,12 +26,23 @@ type TransactionFunc = (
 /**
  * Custom notification content for TXs.
  */
-const TxnNotification = ({ message, blockExplorerLink }: { message: string; blockExplorerLink?: string }) => {
+const TxnNotification = ({
+  message,
+  blockExplorerLink,
+}: {
+  message: string;
+  blockExplorerLink?: string;
+}) => {
   return (
     <div className={`flex flex-col ml-1 cursor-default`}>
       <p className="my-0">{message}</p>
       {blockExplorerLink && blockExplorerLink.length > 0 ? (
-        <a href={blockExplorerLink} target="_blank" rel="noreferrer" className="block link text-md">
+        <a
+          href={blockExplorerLink}
+          target="_blank"
+          rel="noreferrer"
+          className="block link text-md"
+        >
           check out transaction
         </a>
       ) : null}
@@ -32,7 +55,9 @@ const TxnNotification = ({ message, blockExplorerLink }: { message: string; bloc
  * @param _walletClient - Optional wallet client to use. If not provided, will use the one from useWalletClient.
  * @returns function that takes in transaction function as callback, shows UI feedback for transaction and returns a promise of the transaction hash
  */
-export const useTransactor = (_walletClient?: WalletClient): TransactionFunc => {
+export const useTransactor = (
+  _walletClient?: WalletClient,
+): TransactionFunc => {
   let walletClient = _walletClient;
   const { data } = useWalletClient();
   if (walletClient === undefined && data) {
@@ -47,13 +72,16 @@ export const useTransactor = (_walletClient?: WalletClient): TransactionFunc => 
     }
 
     let notificationId = null;
-    let transactionHash: Awaited<WriteContractResult>["hash"] | undefined = undefined;
+    let transactionHash: Awaited<WriteContractResult>["hash"] | undefined =
+      undefined;
     try {
       const network = await walletClient.getChainId();
       // Get full transaction from public client
       const publicClient = getPublicClient();
 
-      notificationId = notification.loading(<TxnNotification message="Awaiting for user confirmation" />);
+      notificationId = notification.loading(
+        <TxnNotification message="Awaiting for user confirmation" />,
+      );
       if (typeof tx === "function") {
         // Tx is already prepared by the caller
         const result = await tx();
@@ -69,10 +97,15 @@ export const useTransactor = (_walletClient?: WalletClient): TransactionFunc => 
       }
       notification.remove(notificationId);
 
-      const blockExplorerTxURL = network ? getBlockExplorerTxLink(network, transactionHash) : "";
+      const blockExplorerTxURL = network
+        ? getBlockExplorerTxLink(network, transactionHash)
+        : "";
 
       notificationId = notification.loading(
-        <TxnNotification message="Waiting for transaction to complete." blockExplorerLink={blockExplorerTxURL} />,
+        <TxnNotification
+          message="Waiting for transaction to complete."
+          blockExplorerLink={blockExplorerTxURL}
+        />,
       );
 
       const transactionReceipt = await publicClient.waitForTransactionReceipt({
@@ -82,13 +115,17 @@ export const useTransactor = (_walletClient?: WalletClient): TransactionFunc => 
       notification.remove(notificationId);
 
       notification.success(
-        <TxnNotification message="Transaction completed successfully!" blockExplorerLink={blockExplorerTxURL} />,
+        <TxnNotification
+          message="Transaction completed successfully!"
+          blockExplorerLink={blockExplorerTxURL}
+        />,
         {
           icon: "🎉",
         },
       );
 
-      if (options?.onBlockConfirmation) options.onBlockConfirmation(transactionReceipt);
+      if (options?.onBlockConfirmation)
+        options.onBlockConfirmation(transactionReceipt);
     } catch (error: any) {
       if (notificationId) {
         notification.remove(notificationId);

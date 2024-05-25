@@ -1,6 +1,9 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { ContractInput } from "./ContractInput";
-import { getFunctionInputKey, getInitalTupleArrayFormState } from "./utilsContract";
+import {
+  getFunctionInputKey,
+  getInitalTupleArrayFormState,
+} from "./utilsContract";
 import { replacer } from "~~/utils/scaffold-eth/common";
 import { AbiParameterTuple } from "~~/utils/scaffold-eth/contract";
 
@@ -11,11 +14,17 @@ type TupleArrayProps = {
   parentForm: Record<string, any> | undefined;
 };
 
-export const TupleArray = ({ abiTupleParameter, setParentForm, parentStateObjectKey }: TupleArrayProps) => {
-  const [form, setForm] = useState<Record<string, any>>(() => getInitalTupleArrayFormState(abiTupleParameter));
-  const [additionalInputs, setAdditionalInputs] = useState<Array<typeof abiTupleParameter.components>>([
-    abiTupleParameter.components,
-  ]);
+export const TupleArray = ({
+  abiTupleParameter,
+  setParentForm,
+  parentStateObjectKey,
+}: TupleArrayProps) => {
+  const [form, setForm] = useState<Record<string, any>>(() =>
+    getInitalTupleArrayFormState(abiTupleParameter),
+  );
+  const [additionalInputs, setAdditionalInputs] = useState<
+    Array<typeof abiTupleParameter.components>
+  >([abiTupleParameter.components]);
 
   const depth = (abiTupleParameter.type.match(/\[\]/g) || []).length;
 
@@ -38,7 +47,8 @@ export const TupleArray = ({ abiTupleParameter, setParentForm, parentStateObject
 
       const argsStruct: Record<string, any> = {};
       abiTupleParameter.components.forEach((component, componentIndex) => {
-        argsStruct[component.name || `input_${componentIndex}_`] = currentKeyValues[componentIndex];
+        argsStruct[component.name || `input_${componentIndex}_`] =
+          currentKeyValues[componentIndex];
       });
 
       argsArray.push(argsStruct);
@@ -51,21 +61,29 @@ export const TupleArray = ({ abiTupleParameter, setParentForm, parentStateObject
     }
 
     setParentForm(parentForm => {
-      return { ...parentForm, [parentStateObjectKey]: JSON.stringify(argsArray, replacer) };
+      return {
+        ...parentForm,
+        [parentStateObjectKey]: JSON.stringify(argsArray, replacer),
+      };
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(form, replacer)]);
 
   const addInput = () => {
     setAdditionalInputs(previousValue => {
-      const newAdditionalInputs = [...previousValue, abiTupleParameter.components];
+      const newAdditionalInputs = [
+        ...previousValue,
+        abiTupleParameter.components,
+      ];
 
       // Add the new inputs to the form
       setForm(form => {
         const newForm = { ...form };
         abiTupleParameter.components.forEach((component, componentIndex) => {
           const key = getFunctionInputKey(
-            `${newAdditionalInputs.length - 1}_${abiTupleParameter.name || "tuple"}`,
+            `${newAdditionalInputs.length - 1}_${
+              abiTupleParameter.name || "tuple"
+            }`,
             component,
             componentIndex,
           );
@@ -116,7 +134,13 @@ export const TupleArray = ({ abiTupleParameter, setParentForm, parentStateObject
                     index,
                   );
                   return (
-                    <ContractInput setForm={setForm} form={form} key={key} stateObjectKey={key} paramType={param} />
+                    <ContractInput
+                      setForm={setForm}
+                      form={form}
+                      key={key}
+                      stateObjectKey={key}
+                      paramType={param}
+                    />
                   );
                 })}
               </div>
@@ -127,7 +151,10 @@ export const TupleArray = ({ abiTupleParameter, setParentForm, parentStateObject
               +
             </button>
             {additionalInputs.length > 0 && (
-              <button className="btn btn-sm btn-secondary" onClick={removeInput}>
+              <button
+                className="btn btn-sm btn-secondary"
+                onClick={removeInput}
+              >
                 -
               </button>
             )}

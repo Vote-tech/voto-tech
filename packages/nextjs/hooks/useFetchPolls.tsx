@@ -64,6 +64,7 @@ export const useFetchPolls = (currentPage = 1, limit = 10, reversed = true) => {
     () => {
       clearInterval(interval);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rawPolls]);
 
   function refetch() {

@@ -3961,7 +3961,8 @@ const deployedContracts = {
       ],
       inheritedFunctions: {
         register: "maci-contracts/contracts/gatekeepers/SignUpGatekeeper.sol",
-        setMaciInstance: "maci-contracts/contracts/gatekeepers/SignUpGatekeeper.sol",
+        setMaciInstance:
+          "maci-contracts/contracts/gatekeepers/SignUpGatekeeper.sol",
       },
       deploymentBlockNumber: 5,
     },
