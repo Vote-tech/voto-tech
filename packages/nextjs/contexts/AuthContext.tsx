@@ -1,10 +1,20 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { Keypair, PrivKey } from "maci-domainobjs";
 import { useAccount, useSignMessage } from "wagmi";
 import deployedContracts from "~~/contracts/deployedContracts";
-import { useScaffoldContractRead, useScaffoldEventHistory, useScaffoldEventSubscriber } from "~~/hooks/scaffold-eth";
+import {
+  useScaffoldContractRead,
+  useScaffoldEventHistory,
+  useScaffoldEventSubscriber,
+} from "~~/hooks/scaffold-eth";
 import scaffoldConfig from "~~/scaffold.config";
 
 interface IAuthContext {
@@ -16,7 +26,11 @@ interface IAuthContext {
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
-export default function AuthContextProvider({ children }: { children: React.ReactNode }) {
+export default function AuthContextProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { address } = useAccount();
   const [keypair, setKeyPair] = useState<Keypair | null>(null);
   const [stateIndex, setStateIndex] = useState<bigint | null>(null);
@@ -48,11 +62,12 @@ export default function AuthContextProvider({ children }: { children: React.Reac
     generateKeypair();
   }, [generateKeypair]);
 
-  const { data: isRegistered, refetch: refetchIsRegistered } = useScaffoldContractRead({
-    contractName: "MACIWrapper",
-    functionName: "isPublicKeyRegistered",
-    args: keypair ? keypair.pubKey.rawPubKey : [0n, 0n],
-  });
+  const { data: isRegistered, refetch: refetchIsRegistered } =
+    useScaffoldContractRead({
+      contractName: "MACIWrapper",
+      functionName: "isPublicKeyRegistered",
+      args: keypair ? keypair.pubKey.rawPubKey : [0n, 0n],
+    });
 
   const chainId = scaffoldConfig.targetNetworks[0].id;
 
@@ -97,7 +112,14 @@ export default function AuthContextProvider({ children }: { children: React.Reac
   });
 
   return (
-    <AuthContext.Provider value={{ isRegistered: Boolean(isRegistered), keypair, stateIndex, generateKeypair }}>
+    <AuthContext.Provider
+      value={{
+        isRegistered: Boolean(isRegistered),
+        keypair,
+        stateIndex,
+        generateKeypair,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

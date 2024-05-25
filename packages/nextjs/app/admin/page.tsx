@@ -16,11 +16,19 @@ export default function AdminPage() {
   const { address } = useAccount();
   const [openCreatePollModal, setOpenCreatePollModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const { data: admin } = useScaffoldContractRead({ contractName: "MACIWrapper", functionName: "owner" });
+  const { data: admin } = useScaffoldContractRead({
+    contractName: "MACIWrapper",
+    functionName: "owner",
+  });
   const [limit] = useState(10);
-  const { totalPolls, polls, refetch: refetchPolls } = useFetchPolls(currentPage, limit);
+  const {
+    totalPolls,
+    polls,
+    refetch: refetchPolls,
+  } = useFetchPolls(currentPage, limit);
   const totalPages = useTotalPages(totalPolls, limit);
-  const [selectedPollForStatusModal, setSelectedPollForStatusModal] = useState<Poll>();
+  const [selectedPollForStatusModal, setSelectedPollForStatusModal] =
+    useState<Poll>();
 
   useEffect(() => {
     if (!admin || !address) return;
@@ -46,8 +54,12 @@ export default function AdminPage() {
           <table className="border-separate w-full mt-7 mb-4">
             <thead>
               <tr className="text-lg font-extralight">
-                <th className="border border-slate-600 bg-primary">Poll Name</th>
-                <th className="border border-slate-600 bg-primary">Start Time</th>
+                <th className="border border-slate-600 bg-primary">
+                  Poll Name
+                </th>
+                <th className="border border-slate-600 bg-primary">
+                  Start Time
+                </th>
                 <th className="border border-slate-600 bg-primary">End Time</th>
                 <th className="border border-slate-600 bg-primary">Status</th>
               </tr>
@@ -56,20 +68,30 @@ export default function AdminPage() {
               {polls.map(poll => (
                 <tr key={poll.id} className="pt-10 text-center">
                   <td>{poll.name}</td>
-                  <td>{new Date(Number(poll.startTime) * 1000).toLocaleString()}</td>
-                  <td>{new Date(Number(poll.endTime) * 1000).toLocaleString()}</td>
+                  <td>
+                    {new Date(Number(poll.startTime) * 1000).toLocaleString()}
+                  </td>
+                  <td>
+                    {new Date(Number(poll.endTime) * 1000).toLocaleString()}
+                  </td>
                   <td>
                     {poll.status == PollStatus.CLOSED ? (
                       <>
                         {poll.status}{" "}
-                        <button className=" text-accent underline" onClick={() => setSelectedPollForStatusModal(poll)}>
+                        <button
+                          className=" text-accent underline"
+                          onClick={() => setSelectedPollForStatusModal(poll)}
+                        >
                           (Required Actions)
                         </button>
                       </>
                     ) : poll.status == PollStatus.RESULT_COMPUTED ? (
                       <>
                         {poll.status}{" "}
-                        <Link href={`/polls/${poll.id}`} className="text-accent underline">
+                        <Link
+                          href={`/polls/${poll.id}`}
+                          className="text-accent underline"
+                        >
                           (View Results)
                         </Link>
                       </>
@@ -82,14 +104,22 @@ export default function AdminPage() {
             </tbody>
           </table>
           {totalPages > 1 && (
-            <Paginator currentPage={currentPage} totalPages={totalPages} setPageNumber={setCurrentPage} />
+            <Paginator
+              currentPage={currentPage}
+              totalPages={totalPages}
+              setPageNumber={setCurrentPage}
+            />
           )}
         </>
       ) : (
         <div>No polls found</div>
       )}
 
-      <CreatePollModal refetchPolls={refetchPolls} show={openCreatePollModal} setOpen={setOpenCreatePollModal} />
+      <CreatePollModal
+        refetchPolls={refetchPolls}
+        show={openCreatePollModal}
+        setOpen={setOpenCreatePollModal}
+      />
 
       <PollStatusModal
         poll={selectedPollForStatusModal}

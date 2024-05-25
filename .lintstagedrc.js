@@ -20,11 +20,10 @@
 //   "packages/hardhat/**/*.{ts,tsx}": [buildHardhatEslintCommand],
 // };
 
-
 const path = require("path");
 
 const buildNextEslintCommand = (filenames) =>
-  `yarn next:lint --fix --file ${filenames
+  `yarn next:lint --fix  ${filenames
     .map((f) => path.relative(path.join(__dirname, "packages", "nextjs"), f))
     .join(" --file ")}`;
 

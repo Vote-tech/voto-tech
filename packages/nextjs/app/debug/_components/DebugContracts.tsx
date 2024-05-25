@@ -44,7 +44,10 @@ export function DebugContracts() {
                 >
                   {contractName}
                   {contractsData[contractName].external && (
-                    <span className="tooltip tooltip-top tooltip-accent" data-tip="External contract">
+                    <span
+                      className="tooltip tooltip-top tooltip-accent"
+                      data-tip="External contract"
+                    >
                       <BarsArrowUpIcon className="h-4 w-4 cursor-pointer" />
                     </span>
                   )}

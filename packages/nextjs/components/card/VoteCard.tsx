@@ -12,7 +12,15 @@ type VoteCardProps = {
   pollOpen: boolean;
 };
 
-const VoteCard = ({ index, candidate, onChange, pollType, isInvalid, setIsInvalid, pollOpen }: VoteCardProps) => {
+const VoteCard = ({
+  index,
+  candidate,
+  onChange,
+  pollType,
+  isInvalid,
+  setIsInvalid,
+  pollOpen,
+}: VoteCardProps) => {
   const [selected, setSelected] = useState(false);
   const [votes, setVotes] = useState(0);
   const votesFieldRef = useRef<HTMLInputElement>(null);
@@ -53,7 +61,11 @@ const VoteCard = ({ index, candidate, onChange, pollType, isInvalid, setIsInvali
                 }
               }
             }}
-            name={pollType === PollType.SINGLE_VOTE ? "candidate-votes" : `candidate-votes-${index}`}
+            name={
+              pollType === PollType.SINGLE_VOTE
+                ? "candidate-votes"
+                : `candidate-votes-${index}`
+            }
           />
         )}
 
@@ -75,7 +87,9 @@ const VoteCard = ({ index, candidate, onChange, pollType, isInvalid, setIsInvali
           onChange={function (e) {
             if (
               Number(e.currentTarget.value) < 0 ||
-              (selected && (e.currentTarget.value === "" || Number(e.currentTarget.value) == 0))
+              (selected &&
+                (e.currentTarget.value === "" ||
+                  Number(e.currentTarget.value) == 0))
             ) {
               setIsInvalid(true);
             } else {

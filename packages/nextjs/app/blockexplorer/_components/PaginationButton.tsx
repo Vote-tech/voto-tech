@@ -8,12 +8,21 @@ type PaginationButtonProps = {
 
 const ITEMS_PER_PAGE = 20;
 
-export const PaginationButton = ({ currentPage, totalItems, setCurrentPage }: PaginationButtonProps) => {
+export const PaginationButton = ({
+  currentPage,
+  totalItems,
+  setCurrentPage,
+}: PaginationButtonProps) => {
   const isPrevButtonDisabled = currentPage === 0;
-  const isNextButtonDisabled = currentPage + 1 >= Math.ceil(totalItems / ITEMS_PER_PAGE);
+  const isNextButtonDisabled =
+    currentPage + 1 >= Math.ceil(totalItems / ITEMS_PER_PAGE);
 
-  const prevButtonClass = isPrevButtonDisabled ? "bg-gray-200 cursor-default" : "btn btn-primary";
-  const nextButtonClass = isNextButtonDisabled ? "bg-gray-200 cursor-default" : "btn btn-primary";
+  const prevButtonClass = isPrevButtonDisabled
+    ? "bg-gray-200 cursor-default"
+    : "btn btn-primary";
+  const nextButtonClass = isNextButtonDisabled
+    ? "bg-gray-200 cursor-default"
+    : "btn btn-primary";
 
   if (isNextButtonDisabled && isPrevButtonDisabled) return null;
 
@@ -26,7 +35,9 @@ export const PaginationButton = ({ currentPage, totalItems, setCurrentPage }: Pa
       >
         <ArrowLeftIcon className="h-4 w-4" />
       </button>
-      <span className="self-center text-primary-content font-medium">Page {currentPage + 1}</span>
+      <span className="self-center text-primary-content font-medium">
+        Page {currentPage + 1}
+      </span>
       <button
         className={`btn btn-sm ${nextButtonClass}`}
         disabled={isNextButtonDisabled}

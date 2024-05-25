@@ -2816,7 +2816,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@se-2/hardhat@*, @se-2/hardhat@workspace:packages/hardhat":
+"@se-2/hardhat@workspace:packages/hardhat":
   version: 0.0.0-use.local
   resolution: "@se-2/hardhat@workspace:packages/hardhat"
   dependencies:
@@ -2881,7 +2881,6 @@ __metadata:
     "@heroicons/react": ^2.0.11
     "@pcd/zuauth": ^1.3.1
     "@rainbow-me/rainbowkit": 1.3.5
-    "@se-2/hardhat": "*"
     "@trivago/prettier-plugin-sort-imports": ^4.1.1
     "@types/node": ^17.0.35
     "@types/nprogress": ^0
@@ -8355,6 +8354,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-readable-tailwind@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "eslint-plugin-readable-tailwind@npm:1.5.0"
+  peerDependencies:
+    eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
+    tailwindcss: ">=3.3.0"
+  checksum: 3cb6d8c30a7ca8d168cf98d198f390732dd790f47b134002a12ffa7ae87f28338ee98167c435a90ea4f9886abeece5d63dba2efed88adff632f8a577a2cb4c52
+  languageName: node
+  linkType: hard
+
 "eslint-scope@npm:^5.1.1":
   version: 5.1.1
   resolution: "eslint-scope@npm:5.1.1"
@@ -8801,7 +8810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:^6.12.0, ethers@npm:^6.6.4":
+"ethers@npm:^6.12.0, ethers@npm:^6.12.1, ethers@npm:^6.6.4":
   version: 6.12.1
   resolution: "ethers@npm:6.12.1"
   dependencies:
@@ -14301,8 +14310,11 @@ __metadata:
   dependencies:
     eslint: ^8
     eslint-config-next: 14.1.3
+    eslint-plugin-readable-tailwind: ^1.5.0
+    ethers: ^6.12.1
     husky: ^8.0.1
     lint-staged: ^13.0.3
+    typescript: ^5.4.5
   languageName: unknown
   linkType: soft
 
@@ -15769,7 +15781,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.3":
+"typescript@npm:^5.3.3, typescript@npm:^5.4.5":
   version: 5.4.5
   resolution: "typescript@npm:5.4.5"
   bin:
@@ -15799,7 +15811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^5.3.3#~builtin<compat/typescript>":
+"typescript@patch:typescript@^5.3.3#~builtin<compat/typescript>, typescript@patch:typescript@^5.4.5#~builtin<compat/typescript>":
   version: 5.4.5
   resolution: "typescript@patch:typescript@npm%3A5.4.5#~builtin<compat/typescript>::version=5.4.5&hash=a1c5e5"
   bin:

@@ -5,7 +5,10 @@ import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { TransactionWithFunction } from "~~/utils/scaffold-eth";
 import { TransactionsTableProps } from "~~/utils/scaffold-eth/";
 
-export const TransactionsTable = ({ blocks, transactionReceipts }: TransactionsTableProps) => {
+export const TransactionsTable = ({
+  blocks,
+  transactionReceipts,
+}: TransactionsTableProps) => {
   const { targetNetwork } = useTargetNetwork();
 
   return (
@@ -20,14 +23,18 @@ export const TransactionsTable = ({ blocks, transactionReceipts }: TransactionsT
               <th className="bg-primary">Time Mined</th>
               <th className="bg-primary">From</th>
               <th className="bg-primary">To</th>
-              <th className="bg-primary text-end">Value ({targetNetwork.nativeCurrency.symbol})</th>
+              <th className="bg-primary text-end">
+                Value ({targetNetwork.nativeCurrency.symbol})
+              </th>
             </tr>
           </thead>
           <tbody>
             {blocks.map(block =>
               (block.transactions as TransactionWithFunction[]).map(tx => {
                 const receipt = transactionReceipts[tx.hash];
-                const timeMined = new Date(Number(block.timestamp) * 1000).toLocaleString();
+                const timeMined = new Date(
+                  Number(block.timestamp) * 1000,
+                ).toLocaleString();
                 const functionCalled = tx.input.substring(0, 10);
 
                 return (
@@ -36,12 +43,20 @@ export const TransactionsTable = ({ blocks, transactionReceipts }: TransactionsT
                       <TransactionHash hash={tx.hash} />
                     </td>
                     <td className="w-2/12 md:py-4">
-                      {tx.functionName === "0x" ? "" : <span className="mr-1">{tx.functionName}</span>}
+                      {tx.functionName === "0x" ? (
+                        ""
+                      ) : (
+                        <span className="mr-1">{tx.functionName}</span>
+                      )}
                       {functionCalled !== "0x" && (
-                        <span className="badge badge-primary font-bold text-xs">{functionCalled}</span>
+                        <span className="badge badge-primary font-bold text-xs">
+                          {functionCalled}
+                        </span>
                       )}
                     </td>
-                    <td className="w-1/12 md:py-4">{block.number?.toString()}</td>
+                    <td className="w-1/12 md:py-4">
+                      {block.number?.toString()}
+                    </td>
                     <td className="w-2/1 md:py-4">{timeMined}</td>
                     <td className="w-2/12 md:py-4">
                       <Address address={tx.from} size="sm" />
@@ -51,13 +66,19 @@ export const TransactionsTable = ({ blocks, transactionReceipts }: TransactionsT
                         tx.to && <Address address={tx.to} size="sm" />
                       ) : (
                         <div className="relative">
-                          <Address address={receipt.contractAddress} size="sm" />
-                          <small className="absolute top-4 left-4">(Contract Creation)</small>
+                          <Address
+                            address={receipt.contractAddress}
+                            size="sm"
+                          />
+                          <small className="absolute top-4 left-4">
+                            (Contract Creation)
+                          </small>
                         </div>
                       )}
                     </td>
                     <td className="text-right md:py-4">
-                      {formatEther(tx.value)} {targetNetwork.nativeCurrency.symbol}
+                      {formatEther(tx.value)}{" "}
+                      {targetNetwork.nativeCurrency.symbol}
                     </td>
                   </tr>
                 );

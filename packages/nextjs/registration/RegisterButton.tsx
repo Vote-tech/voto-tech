@@ -13,7 +13,11 @@ export default function RegisterButton() {
   const { writeAsync } = useScaffoldContractWrite({
     contractName: "MACIWrapper",
     functionName: "signUp",
-    args: [keypair?.pubKey.asContractParam() as { x: bigint; y: bigint }, "0x", "0x"],
+    args: [
+      keypair?.pubKey.asContractParam() as { x: bigint; y: bigint },
+      "0x",
+      "0x",
+    ],
   });
 
   async function register() {
@@ -23,7 +27,11 @@ export default function RegisterButton() {
     const fieldsToReveal = {
       revealTicketId: true,
     };
-    const result = await zuAuthPopup({ fieldsToReveal, watermark: address, config: ETHBERLIN04 });
+    const result = await zuAuthPopup({
+      fieldsToReveal,
+      watermark: address,
+      config: ETHBERLIN04,
+    });
     if (result.type !== "pcd") {
       notification.error("Failed to parse PCD");
     }
@@ -37,7 +45,11 @@ export default function RegisterButton() {
         [witness._pA, witness._pB, witness._pC, witness._pubSignals],
       );
       await writeAsync({
-        args: [keypair.pubKey.asContractParam() as { x: bigint; y: bigint }, data as `0x${string}`, "0x"],
+        args: [
+          keypair.pubKey.asContractParam() as { x: bigint; y: bigint },
+          data as `0x${string}`,
+          "0x",
+        ],
       });
     } catch (err) {
       console.log(err);
@@ -46,7 +58,10 @@ export default function RegisterButton() {
 
   if (!keypair) {
     return (
-      <button className="border border-slate-600 bg-primary px-3 py-2 rounded-lg font-bold" onClick={generateKeypair}>
+      <button
+        className="border border-slate-600 bg-primary px-3 py-2 rounded-lg font-bold"
+        onClick={generateKeypair}
+      >
         Login
       </button>
     );
@@ -57,7 +72,10 @@ export default function RegisterButton() {
   return (
     <>
       (You are not registered yet)
-      <button className="border border-slate-600 bg-primary px-3 py-2 rounded-lg font-bold" onClick={register}>
+      <button
+        className="border border-slate-600 bg-primary px-3 py-2 rounded-lg font-bold"
+        onClick={register}
+      >
         Register
       </button>
     </>
