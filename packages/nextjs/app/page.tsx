@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import RegisterButton from "./_components/RegisterButton";
-// import { SafePasskeysDemo } from "./registration/SafePasskeysDemo";
 import type { NextPage } from "next";
 import HeroImage from "~~/assets/private_voting.png";
 import { useAuthUserOnly } from "~~/hooks/useAuthUserOnly";
@@ -19,9 +18,9 @@ const Home: NextPage = () => {
           <div className="flex flex-col-reverse md:flex-row justify-center items-center mt-10 sm:w-2/3 mx-auto gap-x-10 gap-y-5 mb-10">
             <div className="flex-1">
               <p className="text-lg mt-5 text-justify">
-                Now you finally vote with the Voto Voto. Voto is an on-chain
-                censorship-resistant, voting solution built on decentralised
-                identities.
+                Now you finally vote with Voto. Voto is an on-chain
+                censorship-resistant, anonymous, voting solution built on
+                decentralised identities.
               </p>
               <div className="text-center">
                 <RegisterButton />
