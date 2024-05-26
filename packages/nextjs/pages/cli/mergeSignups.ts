@@ -25,7 +25,7 @@ export const mergeSignups = async ({
   maciAddress,
   signer,
   quiet = true,
-}: MergeSignupsArgs): Promise<void> => {
+}: MergeSignupsArgs): Promise<boolean> => {
   banner(quiet);
   const network = await signer.provider?.getNetwork();
 
@@ -80,7 +80,9 @@ export const mergeSignups = async ({
         `Executed mergeStateAq(); gas used: ${receipt!.gasUsed.toString()}`,
       ),
     );
+    return true;
   } else {
     logError("The state tree has already been merged.");
+    return false;
   }
 };

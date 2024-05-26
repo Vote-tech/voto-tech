@@ -28,7 +28,7 @@ export const mergeMessages = async ({
   maciAddress,
   numQueueOps,
   signer,
-}: MergeMessagesArgs): Promise<void> => {
+}: MergeMessagesArgs): Promise<boolean> => {
   banner(quiet);
   const network = await signer.provider?.getNetwork();
 
@@ -144,7 +144,9 @@ export const mergeMessages = async ({
     );
     logYellow(quiet, info(`Transaction hash: ${receipt!.hash}`));
     logGreen(quiet, success("The message tree has been merged."));
+    return true;
   } else {
     logYellow(quiet, info("The message tree has already been merged."));
+    return false;
   }
 };

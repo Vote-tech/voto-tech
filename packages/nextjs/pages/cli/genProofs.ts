@@ -27,7 +27,6 @@ import {
 import { type CircuitInputs, type IJsonMaciState, MaciState } from "maci-core";
 import { hash3, hashLeftRight, genTreeCommitment } from "maci-crypto";
 import { Keypair, PrivKey } from "maci-domainobjs";
-import path from "path";
 
 /**
  * Generate proofs for the message processing and tally calculations
@@ -36,8 +35,6 @@ import path from "path";
  * @returns The tally data
  */
 export const genProofs = async ({
-  outputDir,
-  tallyFile,
   tallyZkey,
   processZkey,
   pollId,
@@ -62,12 +59,6 @@ export const genProofs = async ({
   quiet = true,
 }: GenProofsArgs): Promise<TallyData> => {
   banner(quiet);
-
-  // if we do not have the output directory just create it
-  if (!fs.existsSync(outputDir)) {
-    // Create the directory
-    fs.mkdirSync(outputDir);
-  }
 
   // differentiate whether we are using wasm or rapidsnark
   if (useWasm) {
@@ -313,10 +304,6 @@ export const genProofs = async ({
       };
       // save the proof
       processProofs.push(thisProof);
-      fs.writeFileSync(
-        path.resolve(outputDir, `process_${poll.numBatchesProcessed - 1}.json`),
-        JSON.stringify(thisProof, null, 4),
-      );
 
       logYellow(
         quiet,
@@ -386,10 +373,6 @@ export const genProofs = async ({
 
       // save it
       tallyProofs.push(thisProof);
-      fs.writeFileSync(
-        path.resolve(outputDir, `tally_${poll.numBatchesTallied - 1}.json`),
-        JSON.stringify(thisProof, null, 4),
-      );
 
       logYellow(
         quiet,
@@ -483,8 +466,6 @@ export const genProofs = async ({
       newSpentVoiceCreditsCommitment,
     );
   }
-
-  fs.writeFileSync(tallyFile, JSON.stringify(tallyFileData, null, 4));
 
   logYellow(
     quiet,

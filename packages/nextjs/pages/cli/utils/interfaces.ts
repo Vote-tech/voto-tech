@@ -551,8 +551,8 @@ export interface MergeSignupsArgs {
    * The id of the poll
    */
   pollId: bigint;
-
   /**
+
    * A signer object
    */
   signer: Signer;

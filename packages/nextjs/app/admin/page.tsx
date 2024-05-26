@@ -6,6 +6,9 @@ import { redirect } from "next/navigation";
 import CreatePollModal from "./_components/CreatePollModal";
 import PollStatusModal from "./_components/PollStatusModal";
 import { useAccount } from "wagmi";
+import { genProofs } from "~~/cli/genProofs";
+import { mergeMessages } from "~~/cli/mergeMessages";
+import { mergeSignups } from "~~/cli/mergeSignups";
 import Paginator from "~~/components/Paginator";
 import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
 import { useFetchPolls } from "~~/hooks/useFetchPolls";
@@ -36,6 +39,22 @@ export default function AdminPage() {
       redirect("/");
     }
   }, [address, admin]);
+
+  const handleResultComputation = async (pollId, maciAddress, signer) => {
+    let res = await mergeSignups({ pollId, maciAddress, signer });
+    if (!res) {
+      console.log("mergeSignups failed");
+    }
+
+    res = await mergeMessages({ pollId, maciAddress, signer });
+    if (!res) {
+      console.log("mergeMessages failed");
+    }
+
+    const tallyData = await genProofs({});
+
+    return;
+  };
 
   return (
     <div className="container mx-auto pt-10">
@@ -80,7 +99,7 @@ export default function AdminPage() {
                         {poll.status}{" "}
                         <button
                           className=" text-accent underline"
-                          onClick={() => setSelectedPollForStatusModal(poll)}
+                          onClick={() => handleResultComputation(poll)}
                         >
                           (Required Actions)
                         </button>
