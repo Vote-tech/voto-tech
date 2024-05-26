@@ -6,12 +6,14 @@ module.exports = {
     "./utils/**/*.{js,ts,jsx,tsx}",
   ],
   plugins: [require("daisyui")],
-  darkTheme: "dracula",
+  darkTheme: "black",
   // DaisyUI theme colors
   daisyui: {
     themes: [
       {
         light: {
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          ...require("daisyui/src/theming/themes")["light"],
           primary: "#93BBFB",
           "primary-content": "#212638",
           secondary: "#DAE8FF",
