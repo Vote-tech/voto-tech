@@ -6,16 +6,17 @@ import { redirect } from "next/navigation";
 import CreatePollModal from "./_components/CreatePollModal";
 import PollStatusModal from "./_components/PollStatusModal";
 import { useAccount } from "wagmi";
-import { genProofs } from "~~/cli/genProofs";
-import { mergeMessages } from "~~/cli/mergeMessages";
-import { mergeSignups } from "~~/cli/mergeSignups";
 import Paginator from "~~/components/Paginator";
-import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
+import {
+  useDeployedContractInfo,
+  useScaffoldContractRead,
+} from "~~/hooks/scaffold-eth";
 import { useFetchPolls } from "~~/hooks/useFetchPolls";
 import { useTotalPages } from "~~/hooks/useTotalPages";
 import { Poll, PollStatus } from "~~/types/poll";
 
 export default function AdminPage() {
+  const { data } = useDeployedContractInfo("MACIWrapper");
   const { address } = useAccount();
   const [openCreatePollModal, setOpenCreatePollModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,20 +41,21 @@ export default function AdminPage() {
     }
   }, [address, admin]);
 
-  const handleResultComputation = async (pollId, maciAddress, signer) => {
-    let res = await mergeSignups({ pollId, maciAddress, signer });
-    if (!res) {
-      console.log("mergeSignups failed");
+  const fetchTallyData = async (pollId: bigint, maciAddress: string) => {
+    const res = await fetch(
+      `/api/genProof?pollId=${pollId}&maciAddress=${maciAddress}`,
+    );
+    return res.json();
+  };
+
+  const handleResultComputation = async (pollId: bigint) => {
+    const maciAddress = data?.address;
+    if (!maciAddress) {
+      return;
     }
-
-    res = await mergeMessages({ pollId, maciAddress, signer });
-    if (!res) {
-      console.log("mergeMessages failed");
-    }
-
-    const tallyData = await genProofs({});
-
-    return;
+    const res = await fetchTallyData(pollId, maciAddress);
+    console.log(res);
+    return res;
   };
 
   return (
@@ -99,7 +101,7 @@ export default function AdminPage() {
                         {poll.status}{" "}
                         <button
                           className=" text-accent underline"
-                          onClick={() => handleResultComputation(poll)}
+                          onClick={() => handleResultComputation(poll.id)}
                         >
                           (Required Actions)
                         </button>
