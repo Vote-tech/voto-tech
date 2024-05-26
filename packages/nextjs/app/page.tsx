@@ -15,15 +15,16 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-4xl font-bold text-center">
-            Private Voting Starter Kit with MACI
+            Vote with Voto
           </h1>
 
           <div className="flex flex-col-reverse md:flex-row justify-center items-center mt-10 sm:w-2/3 mx-auto gap-x-10 gap-y-5 mb-10">
             <div className="flex-1">
               <p className="text-lg mt-5 text-justify">
-                This starter kit is designed to help you get started with
-                private voting using the Minimal Anti-Collusion Infrastructure
-                (MACI).
+                Now you finally vote with the Voto Voto.
+                Voto is an on-chain censorship-resistant, 
+                voting solution built on decentralised identities.
+
               </p>
               <div className="text-center">
                 <RegisterButton />

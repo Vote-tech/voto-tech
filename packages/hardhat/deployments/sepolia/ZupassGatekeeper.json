@@ -1,0 +1,367 @@
+{
+  "address": "0x1a9120ca35be0D96575fc03233417EfC6C441977",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_validEventId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_validSigner1",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_validSigner2",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_verifier",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "AlreadyRegistered",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidEventId",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidProof",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidSigners",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidWatermark",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyMACI",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "maci",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "register",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "registeredTickets",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_maci",
+          "type": "address"
+        }
+      ],
+      "name": "setMaciInstance",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x78ded7bcfae667ccb252b287a44719682256444892375f03f28afb22fe46cc27",
+  "receipt": {
+    "to": null,
+    "from": "0x1C15d1F1520b815f8321f60EAedB05Dc18917C99",
+    "contractAddress": "0x1a9120ca35be0D96575fc03233417EfC6C441977",
+    "transactionIndex": 23,
+    "gasUsed": "485551",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000001000010000000000000000000000000000000020000000000000000000800000000000000000000000000000000400800000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000200000000000000000000040000000000000000000000000",
+    "blockHash": "0x8b754ce6b87c17952ffe32fa0ee3cea5606bf7ede1fac0322c87d4ff0f612b05",
+    "transactionHash": "0x78ded7bcfae667ccb252b287a44719682256444892375f03f28afb22fe46cc27",
+    "logs": [
+      {
+        "transactionIndex": 23,
+        "blockNumber": 5978547,
+        "transactionHash": "0x78ded7bcfae667ccb252b287a44719682256444892375f03f28afb22fe46cc27",
+        "address": "0x1a9120ca35be0D96575fc03233417EfC6C441977",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x0000000000000000000000001c15d1f1520b815f8321f60eaedb05dc18917c99"
+        ],
+        "data": "0x",
+        "logIndex": 60,
+        "blockHash": "0x8b754ce6b87c17952ffe32fa0ee3cea5606bf7ede1fac0322c87d4ff0f612b05"
+      }
+    ],
+    "blockNumber": 5978547,
+    "cumulativeGasUsed": "3986391",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "111560146890584288369567824893314450802",
+    "13908133709081944902758389525983124100292637002438232157513257158004852609027",
+    "7654374482676219729919246464135900991450848628968334062174564799457623790084",
+    "0xb24a87c1DFb8523e5Ef4Bda694Bb466285049192"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "750808027def1a686c3c4942b9a7ffe0",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_validEventId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_validSigner1\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_validSigner2\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_verifier\",\"type\":\"address\"}],\"stateMutability\":\"payable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"AlreadyRegistered\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidEventId\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidProof\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSigners\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidWatermark\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OnlyMACI\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"maci\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"registeredTickets\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_maci\",\"type\":\"address\"}],\"name\":\"setMaciInstance\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"kind\":\"dev\",\"methods\":{\"constructor\":{\"params\":{\"_validEventId\":\"Zupass event UUID converted to bigint\",\"_validSigner1\":\"Zupass event signer[0]\",\"_validSigner2\":\"Zupass event signer[1]\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"register(address,bytes)\":{\"params\":{\"_data\":\"The ABI-encoded tokenId as a uint256.\",\"_user\":\"The user's Ethereum address.\"}},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"setMaciInstance(address)\":{\"params\":{\"_maci\":\"The MACI contract interface to be stored\"}},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"SignUpTokenGatekeeper\",\"version\":1},\"userdoc\":{\"errors\":{\"AlreadyRegistered()\":[{\"notice\":\"custom errors\"}]},\"kind\":\"user\",\"methods\":{\"constructor\":{\"notice\":\"creates a new ZupassGatekeeper\"},\"maci()\":{\"notice\":\"the reference to the MACI contract\"},\"register(address,bytes)\":{\"notice\":\"Registers the user if they own the token with the token ID encoded in _data. Throws if the user does not own the token or if the token has already been used to sign up.\"},\"registeredTickets(uint256)\":{\"notice\":\"a mapping of ticket IDs to whether they have been used\"},\"setMaciInstance(address)\":{\"notice\":\"Adds an uninitialised MACI instance to allow for token signups\"}},\"notice\":\"This contract allows to gatekeep MACI signups by requiring new voters to own a certain ERC721 token\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/maci-contracts/gatekeepers/ZupassGatekeeper.sol\":\"ZupassGatekeeper\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Context} from \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    constructor(address initialOwner) {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\"},\"contracts/Groth16Verifier.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n/*\\n    Copyright 2021 0KIMS association.\\n\\n    This file is generated with [snarkJS](https://github.com/iden3/snarkjs).\\n\\n    snarkJS is a free software: you can redistribute it and/or modify it\\n    under the terms of the GNU General Public License as published by\\n    the Free Software Foundation, either version 3 of the License, or\\n    (at your option) any later version.\\n\\n    snarkJS is distributed in the hope that it will be useful, but WITHOUT\\n    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY\\n    or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public\\n    License for more details.\\n\\n    You should have received a copy of the GNU General Public License\\n    along with snarkJS. If not, see <https://www.gnu.org/licenses/>.\\n*/\\n\\npragma solidity >=0.7.0 <0.9.0;\\n\\ncontract Groth16Verifier {\\n\\t// Scalar field size\\n\\tuint256 constant r =\\n\\t\\t21888242871839275222246405745257275088548364400416034343698204186575808495617;\\n\\t// Base field size\\n\\tuint256 constant q =\\n\\t\\t21888242871839275222246405745257275088696311157297823662689037894645226208583;\\n\\n\\t// Verification Key data\\n\\tuint256 constant alphax =\\n\\t\\t20491192805390485299153009773594534940189261866228447918068658471970481763042;\\n\\tuint256 constant alphay =\\n\\t\\t9383485363053290200918347156157836566562967994039712273449902621266178545958;\\n\\tuint256 constant betax1 =\\n\\t\\t4252822878758300859123897981450591353533073413197771768651442665752259397132;\\n\\tuint256 constant betax2 =\\n\\t\\t6375614351688725206403948262868962793625744043794305715222011528459656738731;\\n\\tuint256 constant betay1 =\\n\\t\\t21847035105528745403288232691147584728191162732299865338377159692350059136679;\\n\\tuint256 constant betay2 =\\n\\t\\t10505242626370262277552901082094356697409835680220590971873171140371331206856;\\n\\tuint256 constant gammax1 =\\n\\t\\t11559732032986387107991004021392285783925812861821192530917403151452391805634;\\n\\tuint256 constant gammax2 =\\n\\t\\t10857046999023057135944570762232829481370756359578518086990519993285655852781;\\n\\tuint256 constant gammay1 =\\n\\t\\t4082367875863433681332203403145435568316851327593401208105741076214120093531;\\n\\tuint256 constant gammay2 =\\n\\t\\t8495653923123431417604973247489272438418190587263600148770280649306958101930;\\n\\tuint256 constant deltax1 =\\n\\t\\t4794378188555673810018158797263945613117081424700154854974240721894252090534;\\n\\tuint256 constant deltax2 =\\n\\t\\t1816911282723953521360374096804693609948256596921895265929104078200823204675;\\n\\tuint256 constant deltay1 =\\n\\t\\t4822598240965235353021859310978490456254180072341966996061361969858340984511;\\n\\tuint256 constant deltay2 =\\n\\t\\t13543378357184474310383646423534605062703850124878450029441667582061275654866;\\n\\n\\tuint256 constant IC0x =\\n\\t\\t7039163794843290796256368468693852992261864980639380847782867461741038210431;\\n\\tuint256 constant IC0y =\\n\\t\\t13828571545952070419695572439672637697093967550127663217094587479939756801713;\\n\\n\\tuint256 constant IC1x =\\n\\t\\t3958090907019850444580447271310783643067855398231992297257715727710216995446;\\n\\tuint256 constant IC1y =\\n\\t\\t20221946439601599894288820734713434259239717191029254240067234373135565758177;\\n\\n\\tuint256 constant IC2x =\\n\\t\\t900186639711238933493055667378009920193627212372904879368486442415809327595;\\n\\tuint256 constant IC2y =\\n\\t\\t2326167641766524616999631967433198170614424673993051767085816973791951172320;\\n\\n\\tuint256 constant IC3x =\\n\\t\\t5036413725381298640320115097177392324444247429122196014822193539177279161834;\\n\\tuint256 constant IC3y =\\n\\t\\t16915948281029825623174724126850423768748230097781953657414920017958567938481;\\n\\n\\tuint256 constant IC4x =\\n\\t\\t18760100143371695362362583151699410223835931838504964976371030235483771799520;\\n\\tuint256 constant IC4y =\\n\\t\\t11050897648840559830340797268632494985552806330900971650426635140540632129623;\\n\\n\\tuint256 constant IC5x =\\n\\t\\t14405103043934777929451041926853384737748587264397789238453021115804714011027;\\n\\tuint256 constant IC5y =\\n\\t\\t17654525523246776275961068512159018488399387144246684730694339431289852689612;\\n\\n\\tuint256 constant IC6x =\\n\\t\\t8723869934697142623491762263289398094319535893464503540125898389370968107859;\\n\\tuint256 constant IC6y =\\n\\t\\t6562444046746975238614247431088671155226534237756214900132774223548393484900;\\n\\n\\tuint256 constant IC7x =\\n\\t\\t14577478605943949020672432197678273024089978103276775373202577864795436168402;\\n\\tuint256 constant IC7y =\\n\\t\\t20868380911669423225158693169242758989558229682271980505657366061586596203338;\\n\\n\\tuint256 constant IC8x =\\n\\t\\t15078791307200682406383940510187595016164044832563024269891293768166347461344;\\n\\tuint256 constant IC8y =\\n\\t\\t13807879254500296471557402479543820453954075404741718297177665886866496451391;\\n\\n\\tuint256 constant IC9x =\\n\\t\\t11961110457054262187040141268827975035460766426109310097612340764580611314242;\\n\\tuint256 constant IC9y =\\n\\t\\t648031620139716874034542002574123681367629070550974595278392168004036814626;\\n\\n\\tuint256 constant IC10x =\\n\\t\\t9897786420777014154834245148124872045575237833648028105961996898423566286793;\\n\\tuint256 constant IC10y =\\n\\t\\t10942250463782575990311669310939232003635777350050348004971415243722694683862;\\n\\n\\tuint256 constant IC11x =\\n\\t\\t21768976691153943693253939674737520933075287952326155542834234684045105263955;\\n\\tuint256 constant IC11y =\\n\\t\\t2652628038258207868440308689934020510765602358527332281459263595352308874872;\\n\\n\\tuint256 constant IC12x =\\n\\t\\t10579889892022441902715761343940775692321155123038188581132868576263856691960;\\n\\tuint256 constant IC12y =\\n\\t\\t14197080288473739214766468387110821163678798975745451452929084680507366969089;\\n\\n\\tuint256 constant IC13x =\\n\\t\\t17381487274016777148244396779385401991045642828052327241661444508026488993960;\\n\\tuint256 constant IC13y =\\n\\t\\t12631141756649305162072161190046426727112068887466313087474366448379889938290;\\n\\n\\tuint256 constant IC14x =\\n\\t\\t13935047382751423896533075574654791455853724928466459591893970338304052339429;\\n\\tuint256 constant IC14y =\\n\\t\\t6824865220976543574218366346391934951925243253294023634161017592510424936549;\\n\\n\\tuint256 constant IC15x =\\n\\t\\t7031992312358334117229960826366500136698824958913380375057168422867887208482;\\n\\tuint256 constant IC15y =\\n\\t\\t6487726177217344454795293919275011847002886774229625835362883818222058658917;\\n\\n\\tuint256 constant IC16x =\\n\\t\\t32761952607172566377921792852655350243312728025797797731884919650955995978;\\n\\tuint256 constant IC16y =\\n\\t\\t17109740037766941001038815791052639848028856032033398873318266457482577886649;\\n\\n\\tuint256 constant IC17x =\\n\\t\\t5148130823680965556573321200326358804854949261914205931196224467597274599399;\\n\\tuint256 constant IC17y =\\n\\t\\t17786165933748885174698871854113633988020047930367652317579732342918892135076;\\n\\n\\tuint256 constant IC18x =\\n\\t\\t19132395236354116173686960242674593409872273373618210170105548787911478039676;\\n\\tuint256 constant IC18y =\\n\\t\\t13128673728382375315191668017332103847318829241457370626993176402741448018866;\\n\\n\\tuint256 constant IC19x =\\n\\t\\t14279232715058070388045405059532116192488308995813346048366203712476135182708;\\n\\tuint256 constant IC19y =\\n\\t\\t15194615736824271563039224473810596003691641177247333143890653748759024086797;\\n\\n\\tuint256 constant IC20x =\\n\\t\\t9955090722504979957069720304999125823978111318362496584519854575527608185162;\\n\\tuint256 constant IC20y =\\n\\t\\t5794103785028496675031047406750626512072617762810766655823567669958439141907;\\n\\n\\tuint256 constant IC21x =\\n\\t\\t3093386023754979021969916793626732114241059635051234406414231194529079272032;\\n\\tuint256 constant IC21y =\\n\\t\\t2726333648975816401517500089384058227785233536677037001841489035806732587931;\\n\\n\\tuint256 constant IC22x =\\n\\t\\t5277410462435782523915882980275775886349488617157850699431034750288036800613;\\n\\tuint256 constant IC22y =\\n\\t\\t21607346138964363953763925149731352915511002970774217667749452112345555034956;\\n\\n\\tuint256 constant IC23x =\\n\\t\\t2882073216919257197946498011741429525374768355767062401579097340303609014667;\\n\\tuint256 constant IC23y =\\n\\t\\t13336208254651518889575781043861573326120722149864211966571295065261003981732;\\n\\n\\tuint256 constant IC24x =\\n\\t\\t16518085772523452403713249212239346119989769943791821955471370367814804849274;\\n\\tuint256 constant IC24y =\\n\\t\\t3163851008551205343892721959924291514513839424028748364301581737083684712635;\\n\\n\\tuint256 constant IC25x =\\n\\t\\t21443140829801323335830440272589422531303604169183393653690045415169893110317;\\n\\tuint256 constant IC25y =\\n\\t\\t11843677807581613645245376500039550313868511109982120780557566436801551936632;\\n\\n\\tuint256 constant IC26x =\\n\\t\\t9011343512724109228637988929452301928814416148302399365691495043540007452711;\\n\\tuint256 constant IC26y =\\n\\t\\t19203719374228430540624285138844258546893532214993666117722702463877026204624;\\n\\n\\tuint256 constant IC27x =\\n\\t\\t12282563786492051221220863019504107834872987144162405093912833624832473504126;\\n\\tuint256 constant IC27y =\\n\\t\\t2098404497662286606968957419285970045028044455644658720985187205946176225636;\\n\\n\\tuint256 constant IC28x =\\n\\t\\t1990701565738088758270472967471263340707808628204302356692995713089340295959;\\n\\tuint256 constant IC28y =\\n\\t\\t4710902959112092813812405997875645709469153185247079786406984810436621334836;\\n\\n\\tuint256 constant IC29x =\\n\\t\\t20358882933388981503171778761697392336011378779059025555927722043477769063258;\\n\\tuint256 constant IC29y =\\n\\t\\t19015855458316650610909766042056506990773552974154423789621320056338171324109;\\n\\n\\tuint256 constant IC30x =\\n\\t\\t20882010929117143317945388885678484675687595287997043750607534940060968021588;\\n\\tuint256 constant IC30y =\\n\\t\\t11586557172082174037613559244105184201710114582175280732260566723406709924275;\\n\\n\\tuint256 constant IC31x =\\n\\t\\t9866308320093007323457785354472236077116309736444536950583247217505300484593;\\n\\tuint256 constant IC31y =\\n\\t\\t7621726862256096662846253511430079218096624239819015602672239587875065773680;\\n\\n\\tuint256 constant IC32x =\\n\\t\\t14027123489779385457612700332560563436358522575256251872455086560940806515518;\\n\\tuint256 constant IC32y =\\n\\t\\t10938955322537907189548948078384029109133599816409669950598646265343304376683;\\n\\n\\tuint256 constant IC33x =\\n\\t\\t8185779524540657541561125117577265603809435796152263318353366879537563587361;\\n\\tuint256 constant IC33y =\\n\\t\\t7022890698869206227386505409956869964786133909878013184769185704625348906859;\\n\\n\\tuint256 constant IC34x =\\n\\t\\t11611413113751908909193648245064739218553980961929170910199270975967104957038;\\n\\tuint256 constant IC34y =\\n\\t\\t18994807587760619856245913328685591005051029724453337667407306111138944756694;\\n\\n\\tuint256 constant IC35x =\\n\\t\\t200383746952988761639379177517104787510472386926528110614397950418667358661;\\n\\tuint256 constant IC35y =\\n\\t\\t20007848431425763869830663340890269703980870987344402378604194352912831137056;\\n\\n\\tuint256 constant IC36x =\\n\\t\\t328413860030399674842447170312944751562586291423774720425356928068580343472;\\n\\tuint256 constant IC36y =\\n\\t\\t5189648959630633293821012021210812639351882790811543893302480708749969871675;\\n\\n\\tuint256 constant IC37x =\\n\\t\\t6012328917803371026931141367320642434394368982571440096775691385288621172219;\\n\\tuint256 constant IC37y =\\n\\t\\t3144007704082241276171331516247837779546266689067323035946808770824524079278;\\n\\n\\tuint256 constant IC38x =\\n\\t\\t6432946433062452526687536616554972830856614963273241146116338471741671687252;\\n\\tuint256 constant IC38y =\\n\\t\\t15585047391247849588392219751347369098681511169371119693472990059654876497118;\\n\\n\\t// Memory data\\n\\tuint16 constant pVk = 0;\\n\\tuint16 constant pPairing = 128;\\n\\n\\tuint16 constant pLastMem = 896;\\n\\n\\tfunction verifyProof(\\n\\t\\tuint[2] calldata _pA,\\n\\t\\tuint[2][2] calldata _pB,\\n\\t\\tuint[2] calldata _pC,\\n\\t\\tuint[38] calldata _pubSignals\\n\\t) public view returns (bool) {\\n\\t\\tassembly {\\n\\t\\t\\tfunction checkField(v) {\\n\\t\\t\\t\\tif iszero(lt(v, q)) {\\n\\t\\t\\t\\t\\tmstore(0, 0)\\n\\t\\t\\t\\t\\treturn(0, 0x20)\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\n\\t\\t\\t// G1 function to multiply a G1 value(x,y) to value in an address\\n\\t\\t\\tfunction g1_mulAccC(pR, x, y, s) {\\n\\t\\t\\t\\tlet success\\n\\t\\t\\t\\tlet mIn := mload(0x40)\\n\\t\\t\\t\\tmstore(mIn, x)\\n\\t\\t\\t\\tmstore(add(mIn, 32), y)\\n\\t\\t\\t\\tmstore(add(mIn, 64), s)\\n\\n\\t\\t\\t\\tsuccess := staticcall(sub(gas(), 2000), 7, mIn, 96, mIn, 64)\\n\\n\\t\\t\\t\\tif iszero(success) {\\n\\t\\t\\t\\t\\tmstore(0, 0)\\n\\t\\t\\t\\t\\treturn(0, 0x20)\\n\\t\\t\\t\\t}\\n\\n\\t\\t\\t\\tmstore(add(mIn, 64), mload(pR))\\n\\t\\t\\t\\tmstore(add(mIn, 96), mload(add(pR, 32)))\\n\\n\\t\\t\\t\\tsuccess := staticcall(sub(gas(), 2000), 6, mIn, 128, pR, 64)\\n\\n\\t\\t\\t\\tif iszero(success) {\\n\\t\\t\\t\\t\\tmstore(0, 0)\\n\\t\\t\\t\\t\\treturn(0, 0x20)\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\n\\t\\t\\tfunction checkPairing(pA, pB, pC, pubSignals, pMem) -> isOk {\\n\\t\\t\\t\\tlet _pPairing := add(pMem, pPairing)\\n\\t\\t\\t\\tlet _pVk := add(pMem, pVk)\\n\\n\\t\\t\\t\\tmstore(_pVk, IC0x)\\n\\t\\t\\t\\tmstore(add(_pVk, 32), IC0y)\\n\\n\\t\\t\\t\\t// Compute the linear combination vk_x\\n\\n\\t\\t\\t\\tg1_mulAccC(_pVk, IC1x, IC1y, calldataload(add(pubSignals, 0)))\\n\\n\\t\\t\\t\\tg1_mulAccC(_pVk, IC2x, IC2y, calldataload(add(pubSignals, 32)))\\n\\n\\t\\t\\t\\tg1_mulAccC(_pVk, IC3x, IC3y, calldataload(add(pubSignals, 64)))\\n\\n\\t\\t\\t\\tg1_mulAccC(_pVk, IC4x, IC4y, calldataload(add(pubSignals, 96)))\\n\\n\\t\\t\\t\\tg1_mulAccC(_pVk, IC5x, IC5y, calldataload(add(pubSignals, 128)))\\n\\n\\t\\t\\t\\tg1_mulAccC(_pVk, IC6x, IC6y, calldataload(add(pubSignals, 160)))\\n\\n\\t\\t\\t\\tg1_mulAccC(_pVk, IC7x, IC7y, calldataload(add(pubSignals, 192)))\\n\\n\\t\\t\\t\\tg1_mulAccC(_pVk, IC8x, IC8y, calldataload(add(pubSignals, 224)))\\n\\n\\t\\t\\t\\tg1_mulAccC(_pVk, IC9x, IC9y, calldataload(add(pubSignals, 256)))\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC10x,\\n\\t\\t\\t\\t\\tIC10y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 288))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC11x,\\n\\t\\t\\t\\t\\tIC11y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 320))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC12x,\\n\\t\\t\\t\\t\\tIC12y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 352))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC13x,\\n\\t\\t\\t\\t\\tIC13y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 384))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC14x,\\n\\t\\t\\t\\t\\tIC14y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 416))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC15x,\\n\\t\\t\\t\\t\\tIC15y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 448))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC16x,\\n\\t\\t\\t\\t\\tIC16y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 480))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC17x,\\n\\t\\t\\t\\t\\tIC17y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 512))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC18x,\\n\\t\\t\\t\\t\\tIC18y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 544))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC19x,\\n\\t\\t\\t\\t\\tIC19y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 576))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC20x,\\n\\t\\t\\t\\t\\tIC20y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 608))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC21x,\\n\\t\\t\\t\\t\\tIC21y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 640))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC22x,\\n\\t\\t\\t\\t\\tIC22y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 672))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC23x,\\n\\t\\t\\t\\t\\tIC23y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 704))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC24x,\\n\\t\\t\\t\\t\\tIC24y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 736))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC25x,\\n\\t\\t\\t\\t\\tIC25y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 768))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC26x,\\n\\t\\t\\t\\t\\tIC26y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 800))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC27x,\\n\\t\\t\\t\\t\\tIC27y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 832))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC28x,\\n\\t\\t\\t\\t\\tIC28y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 864))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC29x,\\n\\t\\t\\t\\t\\tIC29y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 896))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC30x,\\n\\t\\t\\t\\t\\tIC30y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 928))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC31x,\\n\\t\\t\\t\\t\\tIC31y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 960))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC32x,\\n\\t\\t\\t\\t\\tIC32y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 992))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC33x,\\n\\t\\t\\t\\t\\tIC33y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 1024))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC34x,\\n\\t\\t\\t\\t\\tIC34y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 1056))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC35x,\\n\\t\\t\\t\\t\\tIC35y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 1088))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC36x,\\n\\t\\t\\t\\t\\tIC36y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 1120))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC37x,\\n\\t\\t\\t\\t\\tIC37y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 1152))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tg1_mulAccC(\\n\\t\\t\\t\\t\\t_pVk,\\n\\t\\t\\t\\t\\tIC38x,\\n\\t\\t\\t\\t\\tIC38y,\\n\\t\\t\\t\\t\\tcalldataload(add(pubSignals, 1184))\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\t// -A\\n\\t\\t\\t\\tmstore(_pPairing, calldataload(pA))\\n\\t\\t\\t\\tmstore(\\n\\t\\t\\t\\t\\tadd(_pPairing, 32),\\n\\t\\t\\t\\t\\tmod(sub(q, calldataload(add(pA, 32))), q)\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\t// B\\n\\t\\t\\t\\tmstore(add(_pPairing, 64), calldataload(pB))\\n\\t\\t\\t\\tmstore(add(_pPairing, 96), calldataload(add(pB, 32)))\\n\\t\\t\\t\\tmstore(add(_pPairing, 128), calldataload(add(pB, 64)))\\n\\t\\t\\t\\tmstore(add(_pPairing, 160), calldataload(add(pB, 96)))\\n\\n\\t\\t\\t\\t// alpha1\\n\\t\\t\\t\\tmstore(add(_pPairing, 192), alphax)\\n\\t\\t\\t\\tmstore(add(_pPairing, 224), alphay)\\n\\n\\t\\t\\t\\t// beta2\\n\\t\\t\\t\\tmstore(add(_pPairing, 256), betax1)\\n\\t\\t\\t\\tmstore(add(_pPairing, 288), betax2)\\n\\t\\t\\t\\tmstore(add(_pPairing, 320), betay1)\\n\\t\\t\\t\\tmstore(add(_pPairing, 352), betay2)\\n\\n\\t\\t\\t\\t// vk_x\\n\\t\\t\\t\\tmstore(add(_pPairing, 384), mload(add(pMem, pVk)))\\n\\t\\t\\t\\tmstore(add(_pPairing, 416), mload(add(pMem, add(pVk, 32))))\\n\\n\\t\\t\\t\\t// gamma2\\n\\t\\t\\t\\tmstore(add(_pPairing, 448), gammax1)\\n\\t\\t\\t\\tmstore(add(_pPairing, 480), gammax2)\\n\\t\\t\\t\\tmstore(add(_pPairing, 512), gammay1)\\n\\t\\t\\t\\tmstore(add(_pPairing, 544), gammay2)\\n\\n\\t\\t\\t\\t// C\\n\\t\\t\\t\\tmstore(add(_pPairing, 576), calldataload(pC))\\n\\t\\t\\t\\tmstore(add(_pPairing, 608), calldataload(add(pC, 32)))\\n\\n\\t\\t\\t\\t// delta2\\n\\t\\t\\t\\tmstore(add(_pPairing, 640), deltax1)\\n\\t\\t\\t\\tmstore(add(_pPairing, 672), deltax2)\\n\\t\\t\\t\\tmstore(add(_pPairing, 704), deltay1)\\n\\t\\t\\t\\tmstore(add(_pPairing, 736), deltay2)\\n\\n\\t\\t\\t\\tlet success := staticcall(\\n\\t\\t\\t\\t\\tsub(gas(), 2000),\\n\\t\\t\\t\\t\\t8,\\n\\t\\t\\t\\t\\t_pPairing,\\n\\t\\t\\t\\t\\t768,\\n\\t\\t\\t\\t\\t_pPairing,\\n\\t\\t\\t\\t\\t0x20\\n\\t\\t\\t\\t)\\n\\n\\t\\t\\t\\tisOk := and(success, mload(_pPairing))\\n\\t\\t\\t}\\n\\n\\t\\t\\tlet pMem := mload(0x40)\\n\\t\\t\\tmstore(0x40, add(pMem, pLastMem))\\n\\n\\t\\t\\t// Validate that all evaluations \\u2208 F\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 0)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 32)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 64)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 96)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 128)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 160)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 192)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 224)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 256)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 288)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 320)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 352)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 384)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 416)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 448)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 480)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 512)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 544)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 576)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 608)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 640)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 672)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 704)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 736)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 768)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 800)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 832)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 864)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 896)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 928)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 960)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 992)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 1024)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 1056)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 1088)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 1120)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 1152)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 1184)))\\n\\n\\t\\t\\tcheckField(calldataload(add(_pubSignals, 1216)))\\n\\n\\t\\t\\t// Validate all evaluations\\n\\t\\t\\tlet isValid := checkPairing(_pA, _pB, _pC, _pubSignals, pMem)\\n\\n\\t\\t\\tmstore(0, isValid)\\n\\t\\t\\treturn(0, 0x20)\\n\\t\\t}\\n\\t}\\n}\",\"keccak256\":\"0x2c8c11cffc0cba24379ef7a19ef2ce70a345f633ecc4ab2f0d1a6ba20308ee17\",\"license\":\"GPL-3.0\"},\"contracts/maci-contracts/gatekeepers/ZupassGatekeeper.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport { Ownable } from \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\n\\nimport { SignUpGatekeeper } from \\\"maci-contracts/contracts/gatekeepers/SignUpGatekeeper.sol\\\";\\n\\nimport { Groth16Verifier } from \\\"../../Groth16Verifier.sol\\\";\\n\\n/// @title SignUpTokenGatekeeper\\n/// @notice This contract allows to gatekeep MACI signups\\n/// by requiring new voters to own a certain ERC721 token\\ncontract ZupassGatekeeper is\\n\\tSignUpGatekeeper,\\n\\tOwnable(msg.sender)\\n{\\n\\n\\t// The Zupass event UUID converted to bigint\\n\\tuint256 immutable validEventId;\\n\\n\\t// hex to bigint conversion for Zupass event signer\\n\\tuint256 immutable validSigner1;\\n\\tuint256 immutable validSigner2;\\n\\n\\tGroth16Verifier immutable verifier;\\n\\n\\t/// @notice the reference to the MACI contract\\n\\taddress public maci;\\n\\n\\t/// @notice a mapping of ticket IDs to whether they have been used\\n\\tmapping(uint256 => bool) public registeredTickets;\\n\\n\\t/// @notice custom errors\\n\\terror AlreadyRegistered();\\n\\terror InvalidProof();\\n\\terror InvalidEventId();\\n\\terror InvalidSigners();\\n\\terror InvalidWatermark();\\n\\terror OnlyMACI();\\n\\n\\t/// @notice creates a new ZupassGatekeeper\\n\\t/// @param _validEventId Zupass event UUID converted to bigint\\n\\t/// @param _validSigner1 Zupass event signer[0]\\n\\t/// @param _validSigner2 Zupass event signer[1]\\n\\tconstructor(uint256 _validEventId, uint256 _validSigner1, uint256 _validSigner2, address _verifier) payable {\\n\\t\\tvalidEventId = _validEventId;\\n\\t\\tvalidSigner1 = _validSigner1;\\n\\t\\tvalidSigner2 = _validSigner2;\\n\\t\\tverifier = Groth16Verifier(_verifier);\\n\\t}\\n\\n\\t/// @notice Adds an uninitialised MACI instance to allow for token signups\\n\\t/// @param _maci The MACI contract interface to be stored\\n\\tfunction setMaciInstance(address _maci) public override onlyOwner {\\n\\t\\tmaci = _maci;\\n\\t}\\n\\n\\t/// @notice Registers the user if they own the token with the token ID encoded in\\n\\t/// _data. Throws if the user does not own the token or if the token has\\n\\t/// already been used to sign up.\\n\\t/// @param _user The user's Ethereum address.\\n\\t/// @param _data The ABI-encoded tokenId as a uint256.\\n\\tfunction register(address _user, bytes memory _data) public override {\\n\\t\\tif (maci != msg.sender) revert OnlyMACI();\\n\\n\\t\\t// Decode the given _data bytes\\n\\t\\t(uint256[2] memory _pA,\\n\\t\\tuint256[2][2] memory _pB,\\n\\t\\tuint256[2] memory _pC,\\n\\t\\tuint256[38] memory _pubSignals) = abi.decode(_data, (uint256[2], uint256[2][2], uint256[2], uint256[38]));\\n\\t\\tif (!verifier.verifyProof(_pA, _pB, _pC, _pubSignals))\\n\\t\\t\\trevert InvalidProof();\\n\\n\\t\\t// Events are stored from starting index 15 to till valid event ids length\\n\\n\\t\\tif (_pubSignals[15] != validEventId)\\n\\t\\t\\trevert InvalidEventId();\\n\\n\\t\\t// signers are stored from starting index 13 to 14\\n\\t\\tif (\\n\\t\\t\\t_pubSignals[13] != validSigner1 ||\\n\\t\\t\\t_pubSignals[14] != validSigner2\\n\\t\\t)\\n\\t\\t\\trevert InvalidSigners();\\n\\n\\t\\t// watermark is stored at index 37\\n\\t\\tif (_pubSignals[37] != uint256(uint160(_user)))\\n\\t\\t\\trevert InvalidWatermark();\\n\\n\\t\\t// ticket ID is stored at index 0\\n\\t\\tuint256 ticketId = _pubSignals[0];\\n\\t\\tif (registeredTickets[ticketId])\\n\\t\\t\\trevert AlreadyRegistered();\\n\\n\\t\\tregisteredTickets[ticketId] = true;\\n\\t}\\n}\\n\",\"keccak256\":\"0x8e3b1dfe8ce8a5c9d5ef9057c7f6312b2ac2bc7715d20f7723421982727150bc\",\"license\":\"MIT\"},\"maci-contracts/contracts/gatekeepers/SignUpGatekeeper.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\n/// @title SignUpGatekeeper\\n/// @notice A gatekeeper contract which allows users to sign up for a poll.\\nabstract contract SignUpGatekeeper {\\n  /// @notice Allows to set the MACI contract\\n  // solhint-disable-next-line no-empty-blocks\\n  function setMaciInstance(address _maci) public virtual {}\\n\\n  /// @notice Registers the user\\n  /// @param _user The address of the user\\n  /// @param _data additional data\\n  // solhint-disable-next-line no-empty-blocks\\n  function register(address _user, bytes memory _data) public virtual {}\\n}\\n\",\"keccak256\":\"0x04e288f04b7ace0a706657cb714af361260560b7275f351452a08237d3650531\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x610100601f61086538819003918201601f19168301916001600160401b03831184841017610101578084926080946040528339810103126100fc578051602082015160408301516060909301516001600160a01b0393848216939092918490036100fc5733156100e3576000543360018060a01b0319821617600055604051953391167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0600080a360805260a05260c05260e05261074d90816101188239608051816103f8015260a05181610424015260c051816104be015260e051816103ba0152f35b604051631e4fbdf760e01b815260006004820152602490fd5b600080fd5b634e487b7160e01b600052604160045260246000fdfe6040608081526004908136101561001557600080fd5b600091823560e01c806313e65cf3146105ca57806324b8fbf6146101d557806334a0922c146101ac578063691c1a4214610180578063715018a6146101235780638da5cb5b146100f75763f2fde38b1461006e57600080fd5b346100f35760203660031901126100f35761008761060f565b9061009061067e565b6001600160a01b039182169283156100dd57505082546001600160a01b0319811683178455167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08380a380f35b51631e4fbdf760e01b8152908101849052602490fd5b8280fd5b50503461011f578160031936011261011f57905490516001600160a01b039091168152602090f35b5080fd5b833461017d578060031936011261017d5761013c61067e565b80546001600160a01b03198116825581906001600160a01b03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08280a380f35b80fd5b50346100f35760203660031901126100f3578160209360ff923581526002855220541690519015158152f35b50503461011f578160031936011261011f5760015490516001600160a01b039091168152602090f35b50823461017d578260031936011261017d576101ef61060f565b916024359367ffffffffffffffff948581116105a457366023820112156105a45780830135938685116105b75782519060209561023587601f19601f840116018461065c565b8083528683019336602483830101116100f35781839260248a93018737840101526001805490986001600160a01b039691871633036105a85783518401946105c0858a88019703126105a4578561028b916106aa565b9885607f860112156105a4578651956102a38761062a565b60e086018782821161056d5782908a8d60608b01925b85841061058857505050506102cd916106aa565b958161013f82011215610584578851936104c085019081118582101761057157895283906105e0810192831161056d576101208c919b999b01915b83831061055d5750508851630418f25760e51b81529b61032d9250858d0191506106ef565b60448a01979584985b6002808b101561038457898e928d928b5182868c915b84831061036457505050505001980199019896610336565b879294965083959791935181520193019101908f949291868f959361034c565b50508b96508a61039b8b96999760c48301906106ef565b8389898861010485015b60268410610548575092505050816105c481857f0000000000000000000000000000000000000000000000000000000000000000165afa90811561053e578991610504575b50156104f4576101e08301517f0000000000000000000000000000000000000000000000000000000000000000036104e4576101a08301517f0000000000000000000000000000000000000000000000000000000000000000148015906104b5575b6104a5576104a08301519116036104965751908186526002835260ff848720541661048857508452600290528220805460ff1916909117905580f35b8351630ea075bf60e21b8152fd5b50825163055e490360e01b8152fd5b8551635e231fff60e01b81528490fd5b506101c08301517f0000000000000000000000000000000000000000000000000000000000000000141561044c565b8551630c93477d60e41b81528490fd5b85516309bde33960e01b81528490fd5b90508581813d8311610537575b61051b818361065c565b810103126105335751801515810361053357896103ea565b8880fd5b503d610511565b87513d8b823e3d90fd5b81908551815201930191019091888b916103a5565b82518152918101918c9101610308565b8680fd5b634e487b7160e01b875260418652602487fd5b8580fd5b9091929361059690856106aa565b81520191018a8d85936102b9565b8380fd5b508451630346d90560e21b8152fd5b634e487b7160e01b815260418452602490fd5b833461017d57602036600319011261017d576105e461060f565b6105ec61067e565b60018060a01b03166bffffffffffffffffffffffff60a01b600154161760015580f35b600435906001600160a01b038216820361062557565b600080fd5b6040810190811067ffffffffffffffff82111761064657604052565b634e487b7160e01b600052604160045260246000fd5b90601f8019910116810190811067ffffffffffffffff82111761064657604052565b6000546001600160a01b0316330361069257565b60405163118cdaa760e01b8152336004820152602490fd5b9080601f8301121561062557604051916106c38361062a565b82906040810192831161062557905b8282106106df5750505090565b81518152602091820191016106d2565b6000915b6002831061070057505050565b6001908251815260208091019201920191906106f356fea2646970667358221220eaa13118b03f0c16035e9f7084e26f76399b00d8fe6d3e1d81c8cb1d1f28e04164736f6c63430008140033",
+  "deployedBytecode": "0x6040608081526004908136101561001557600080fd5b600091823560e01c806313e65cf3146105ca57806324b8fbf6146101d557806334a0922c146101ac578063691c1a4214610180578063715018a6146101235780638da5cb5b146100f75763f2fde38b1461006e57600080fd5b346100f35760203660031901126100f35761008761060f565b9061009061067e565b6001600160a01b039182169283156100dd57505082546001600160a01b0319811683178455167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08380a380f35b51631e4fbdf760e01b8152908101849052602490fd5b8280fd5b50503461011f578160031936011261011f57905490516001600160a01b039091168152602090f35b5080fd5b833461017d578060031936011261017d5761013c61067e565b80546001600160a01b03198116825581906001600160a01b03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08280a380f35b80fd5b50346100f35760203660031901126100f3578160209360ff923581526002855220541690519015158152f35b50503461011f578160031936011261011f5760015490516001600160a01b039091168152602090f35b50823461017d578260031936011261017d576101ef61060f565b916024359367ffffffffffffffff948581116105a457366023820112156105a45780830135938685116105b75782519060209561023587601f19601f840116018461065c565b8083528683019336602483830101116100f35781839260248a93018737840101526001805490986001600160a01b039691871633036105a85783518401946105c0858a88019703126105a4578561028b916106aa565b9885607f860112156105a4578651956102a38761062a565b60e086018782821161056d5782908a8d60608b01925b85841061058857505050506102cd916106aa565b958161013f82011215610584578851936104c085019081118582101761057157895283906105e0810192831161056d576101208c919b999b01915b83831061055d5750508851630418f25760e51b81529b61032d9250858d0191506106ef565b60448a01979584985b6002808b101561038457898e928d928b5182868c915b84831061036457505050505001980199019896610336565b879294965083959791935181520193019101908f949291868f959361034c565b50508b96508a61039b8b96999760c48301906106ef565b8389898861010485015b60268410610548575092505050816105c481857f0000000000000000000000000000000000000000000000000000000000000000165afa90811561053e578991610504575b50156104f4576101e08301517f0000000000000000000000000000000000000000000000000000000000000000036104e4576101a08301517f0000000000000000000000000000000000000000000000000000000000000000148015906104b5575b6104a5576104a08301519116036104965751908186526002835260ff848720541661048857508452600290528220805460ff1916909117905580f35b8351630ea075bf60e21b8152fd5b50825163055e490360e01b8152fd5b8551635e231fff60e01b81528490fd5b506101c08301517f0000000000000000000000000000000000000000000000000000000000000000141561044c565b8551630c93477d60e41b81528490fd5b85516309bde33960e01b81528490fd5b90508581813d8311610537575b61051b818361065c565b810103126105335751801515810361053357896103ea565b8880fd5b503d610511565b87513d8b823e3d90fd5b81908551815201930191019091888b916103a5565b82518152918101918c9101610308565b8680fd5b634e487b7160e01b875260418652602487fd5b8580fd5b9091929361059690856106aa565b81520191018a8d85936102b9565b8380fd5b508451630346d90560e21b8152fd5b634e487b7160e01b815260418452602490fd5b833461017d57602036600319011261017d576105e461060f565b6105ec61067e565b60018060a01b03166bffffffffffffffffffffffff60a01b600154161760015580f35b600435906001600160a01b038216820361062557565b600080fd5b6040810190811067ffffffffffffffff82111761064657604052565b634e487b7160e01b600052604160045260246000fd5b90601f8019910116810190811067ffffffffffffffff82111761064657604052565b6000546001600160a01b0316330361069257565b60405163118cdaa760e01b8152336004820152602490fd5b9080601f8301121561062557604051916106c38361062a565b82906040810192831161062557905b8282106106df5750505090565b81518152602091820191016106d2565b6000915b6002831061070057505050565b6001908251815260208091019201920191906106f356fea2646970667358221220eaa13118b03f0c16035e9f7084e26f76399b00d8fe6d3e1d81c8cb1d1f28e04164736f6c63430008140033",
+  "devdoc": {
+    "errors": {
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ]
+    },
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "params": {
+          "_validEventId": "Zupass event UUID converted to bigint",
+          "_validSigner1": "Zupass event signer[0]",
+          "_validSigner2": "Zupass event signer[1]"
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "register(address,bytes)": {
+        "params": {
+          "_data": "The ABI-encoded tokenId as a uint256.",
+          "_user": "The user's Ethereum address."
+        }
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "setMaciInstance(address)": {
+        "params": {
+          "_maci": "The MACI contract interface to be stored"
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "title": "SignUpTokenGatekeeper",
+    "version": 1
+  },
+  "userdoc": {
+    "errors": {
+      "AlreadyRegistered()": [
+        {
+          "notice": "custom errors"
+        }
+      ]
+    },
+    "kind": "user",
+    "methods": {
+      "constructor": {
+        "notice": "creates a new ZupassGatekeeper"
+      },
+      "maci()": {
+        "notice": "the reference to the MACI contract"
+      },
+      "register(address,bytes)": {
+        "notice": "Registers the user if they own the token with the token ID encoded in _data. Throws if the user does not own the token or if the token has already been used to sign up."
+      },
+      "registeredTickets(uint256)": {
+        "notice": "a mapping of ticket IDs to whether they have been used"
+      },
+      "setMaciInstance(address)": {
+        "notice": "Adds an uninitialised MACI instance to allow for token signups"
+      }
+    },
+    "notice": "This contract allows to gatekeep MACI signups by requiring new voters to own a certain ERC721 token",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 8,
+        "contract": "contracts/maci-contracts/gatekeepers/ZupassGatekeeper.sol:ZupassGatekeeper",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 523,
+        "contract": "contracts/maci-contracts/gatekeepers/ZupassGatekeeper.sol:ZupassGatekeeper",
+        "label": "maci",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 528,
+        "contract": "contracts/maci-contracts/gatekeepers/ZupassGatekeeper.sol:ZupassGatekeeper",
+        "label": "registeredTickets",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_uint256,t_bool)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_uint256,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
